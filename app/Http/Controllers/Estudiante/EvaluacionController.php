@@ -7777,7 +7777,7 @@ class EvaluacionController extends Controller
             //CAPTURAR LA RESPUESTA DEL USUARIO A LA QUESTION TA MEDIANTE EL USER ID Y EVALUATION ID
             $answerUser = Result::where('evaluation_id', $evaluationId)->where('question_id', $questionId)->where('user_id', $userId)->pluck('id')->toArray();
             //SACAR EL ID DE LA RESPUESTA DEL ARRAY
-            $idCorrecta = reset($answerUser);
+            $idCorrecta = reset($answerUser); 
             //CAPTURAR EL REGISTRO DE RESPUESTA DEL USUARIO DE LA TABLA RESULTS
             $resultUser = Result::find($idCorrecta);
             //CAPTURAR EL TEXTO USUARIO

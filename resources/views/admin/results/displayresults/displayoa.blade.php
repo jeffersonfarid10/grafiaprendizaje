@@ -65,13 +65,13 @@
     <!-- DIV QUE CONTIENE EL ANALISIS GENERAL DE LAS RESPUESTAS DEL USUARIO -->
     <div class="container border border-dark rounded mb-5" >
         <header class="px-5 py-4 border-bottom">
-            <h2 class="text-red text-center"><strong>Revisión general de tus respuestas:</strong></h2>
+            <h2 class="text-red text-center"><strong>Revisión general de las respuestas:</strong></h2>
         </header>
         <!-- GRID CON DOS COLUMNAS QUE CONTIENE LAS PALABRAS CORRECTAS Y PALABRAS INCORRECTAS DEL USUARIO -->
         <div class="row">
             <!-- RESPUESTA USUARIO -->
             <div class="col-12 col-md-6 border">
-                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Tus respuestas correctas:</strong></h5>
+                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Respuestas correctas del usuario:</strong></h5>
                 <div class="container-fluid mx-auto p-5">
                     <!-- RECORRER LAS RESPUESTAS CORRECTAS DEL USUARIO -->
                     @foreach ($oracionesAcertadas as $correcta)
@@ -82,7 +82,7 @@
             </div>
             <!-- RESPUESTA CORRECTA -->
             <div class="col-12 col-md-6 border">
-                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Tus respuestas incorrectas:</strong></h5>
+                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Respuestas incorrectas del usuario:</strong></h5>
                 <div class="container-fluid mx-auto p-5">
                     <!-- RECORRER LAS RESPUESTAS INCORRECTAS DEL USUARIO -->
                     @foreach ($oracionesIncorrectas as $incorrecta)
@@ -104,7 +104,7 @@
         <div class="row">
             <!-- RESPUESTA USUARIO -->
             <div class="col-12 col-md-6 border">
-                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Tus oraciones:</strong></h5>
+                <h5 class="text-red mt-4 ml-4 mb-2"><strong>Oraciones usuario:</strong></h5>
                 <div class="container-fluid mx-auto p-5">
 
                     <!-- MOSTRAR LAS PALABRAS VISIBLES -->
@@ -132,7 +132,7 @@
     <!-- DIV QUE CONTIENE EL TITULO DE ANALISIS DE CADA RESPUESTA Y UNA DESCRIPCION -->
     <div class="p-5">
         <h1 class="text-start text-red m-5 pb-5"><strong>Revisión de cada respuesta:</strong></h1>
-        <p class="h2 mb-5 text-justify">A continuación puedes ver en detalle la revisión de cada una de tus respuestas.</p>
+        <p class="h2 mb-5 text-justify">A continuación puedes ver en detalle la revisión de cada una de las respuestas.</p>
     </div>
 
 
@@ -170,12 +170,12 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
 
                     <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $existenEspaciosEnunciadoUno ES TRUE, ENTONCES MUESTRA LA RESPUESTA CON LOS "_" Y EL
                     MENSAJE QUE HAY ESPACIOS ADICIONALES EN LA RESPUESTA, PERO SI ES FALSE, ES DECIR NO TIENE ESPACIOS, SOLO SE MUESTRA LA RESPUESTA DEL USUARIO -->
                     @if ($existenEspaciosOracionUno)
-                        <label class="h6 text-justify">Si tu respuesta posee "_" dentro del enunciado, significa que agregaste espacios adicionales entre palabras o signos.</label>
+                        <label class="h6 text-justify">Si la respuesta posee "_" dentro del enunciado, significa que agregó espacios adicionales entre palabras o signos.</label>
                         <h4 class="text-justify m-4"><strong>{{$stringSeccionesOracionUsuarioUno}}</strong></h4>
                         
                     @else
@@ -196,7 +196,7 @@
                         (count($resultadoSignosQueLeFaltaronAlUsuarioUno) === 0) && (count($resultadoSeccionesQueLeFaltaronAlUsuarioUno) === 0))
                         
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
 
                         </div>  
 
@@ -205,15 +205,15 @@
                         <!-- SI LA RESPUESTA TIENE ESPACIOS EN BLANCO Y ADEMAS TIENE OTROS ELEMENTOS INCORRECTOS QUE APAREZCA ESTE MENSAJE -->
                         @if ($mensajeEspacioBlancoOracionUno === true)
                             <div class="px-5 py-4 border-top border-bottom m-2">
-                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta original. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
                             
                             </div>
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
-                                    <strong>*Se han eliminado los espacios adicionales que agregaste en tu respuesta*.</strong></h5>
+                                    <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
                             </div>
                         @else 
@@ -221,7 +221,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -230,13 +230,20 @@
                         <!-- GRID QUE MUESTRA DE COLOR ROJO LOS ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de tu respuesta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color rojo los elementos incorrectos de tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta tiene elementos marcados de color rojo, posee elementos incorrectos. Estos elementos son incorrectos por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">Ha agregado palabras incorrectas.</li>
+                            <li class="text-start mt-4">Ha agregado signos de puntuación de forma incorrecta.</li>
+                            <li class="text-start mt-4">Ha agregado una misma palabra más veces de las necesarias.</li>
                             <h4 id="oracionusuariouno" class="text-justify mt-4">{{$oracionUsuarioUno}}</h4>
                         </div>
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Comparación con la respuesta correcta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color verde los elementos de la respuesta correcta que no se encontraron en tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en la respuesta. Estos elementos no se han encontrado en la respuesta por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">La respuesta no contiene la palabra marcada.</li>
+                            <li class="text-start mt-4">La respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
+                            <li class="text-start mt-4">La respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
+                            <li class="text-start mt-4">Ha omitido la palabra marcada en la respuesta.</li>
                             <h4 id="oracioncorrectauno" class="text-justify mt-4">{{$oracionCorrectaUno}}</h4>
                         </div>
                         
@@ -263,7 +270,7 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Respuesta usuario:</strong></h5>
                     <h4 id="oracionusuariouno" class="text-justify mt-4"><strong>{{$oracionUsuarioUno}}</strong></h4>
                 </div>
                 <!-- RESPUESTA CORRECTA -->
@@ -281,8 +288,8 @@
         @if (count($resultadoSeccionesIncorrectasOracionUsuarioUno) >0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos de tu respuesta son incorrectos.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes elementos de la respuesta son incorrectos.</p>
 
                 <!-- SE CAMBIO EL RESULTADOENUNCIADOPALABRASINCORRECTASUSUARIOUNO POR EL RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO QUE ANALIZA TANTO PALABRAS COMO SECCIONES
                 DE LA RESPUESTA DEL USUARIO QUE ESTEN INCORRECTAS -->
@@ -304,7 +311,7 @@
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
                 <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos ortográficos incorrectos:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en tu respuesta.</p>
+                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -326,8 +333,8 @@
 
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en tu respuesta.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -348,9 +355,8 @@
         @if (count($resultadoSeccionesQueLeFaltaronAlUsuarioUno) > 0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en tu respuesta:</strong></h5>
-                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en tu respuesta debido a que colocaste incorrectamente ciertos signos de puntuación o escribiste palabras incorrectamente.
-                    En la respuesta correcta se marcan de color verde las secciones que no se encontraron en tu oración.
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en la respuesta:</strong></h5>
+                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en la respuesta.
                 </p>
 
                 
@@ -401,12 +407,12 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
 
                     <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $existenEspaciosEnunciadoUno ES TRUE, ENTONCES MUESTRA LA RESPUESTA CON LOS "_" Y EL
                     MENSAJE QUE HAY ESPACIOS ADICIONALES EN LA RESPUESTA, PERO SI ES FALSE, ES DECIR NO TIENE ESPACIOS, SOLO SE MUESTRA LA RESPUESTA DEL USUARIO -->
                     @if ($existenEspaciosOracionDos)
-                        <label class="h6 text-justify">Si tu respuesta posee "_" dentro del enunciado, significa que agregaste espacios adicionales entre palabras o signos.</label>
+                        <label class="h6 text-justify">Si la respuesta posee "_" dentro del enunciado, significa que agregó espacios adicionales entre palabras o signos.</label>
                         <h4 class="text-justify m-4"><strong>{{$stringSeccionesOracionUsuarioDos}}</strong></h4>
                         
                     @else
@@ -427,7 +433,7 @@
                         (count($resultadoSignosQueLeFaltaronAlUsuarioDos) === 0) && (count($resultadoSeccionesQueLeFaltaronAlUsuarioDos) === 0))
                         
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
 
                         </div>  
 
@@ -436,15 +442,15 @@
                         <!-- SI LA RESPUESTA TIENE ESPACIOS EN BLANCO Y ADEMAS TIENE OTROS ELEMENTOS INCORRECTOS QUE APAREZCA ESTE MENSAJE -->
                         @if ($mensajeEspacioBlancoOracionDos === true)
                             <div class="px-5 py-4 border-top border-bottom m-2">
-                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta original. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
                             
                             </div>
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
-                                    <strong>*Se han eliminado los espacios adicionales que agregaste en tu respuesta*.</strong></h5>
+                                    <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
                             </div>
                         @else 
@@ -452,7 +458,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -460,14 +466,21 @@
                         
                         <!-- GRID QUE MUESTRA DE COLOR ROJO LOS ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de tu respuesta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color rojo los elementos incorrectos de tu respuesta.</p>
+                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de la respuesta:</strong></h5>
+                            <p class="text-start mt-4">Si la respuesta tiene elementos marcados de color rojo, posee elementos incorrectos. Estos elementos son incorrectos por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">Ha agregado palabras incorrectas.</li>
+                            <li class="text-start mt-4">Ha agregado signos de puntuación de forma incorrecta.</li>
+                            <li class="text-start mt-4">Ha agregado una misma palabra más veces de las necesarias.</li>
                             <h4 id="oracionusuariodos" class="text-justify mt-4">{{$oracionUsuarioDos}}</h4>
                         </div>
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Comparación con la respuesta correcta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color verde los elementos de la respuesta correcta que no se encontraron en tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en la respuesta. Estos elementos no se han encontrado en la respuesta por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">La respuesta no contiene la palabra marcada.</li>
+                            <li class="text-start mt-4">La respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
+                            <li class="text-start mt-4">La respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
+                            <li class="text-start mt-4">Ha omitido la palabra marcada en la respuesta.</li>
                             <h4 id="oracioncorrectados" class="text-justify mt-4">{{$oracionCorrectaDos}}</h4>
                         </div>
                         
@@ -494,7 +507,7 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Respuesta usuario:</strong></h5>
                     <h4 id="oracionusuariodos" class="text-justify mt-4"><strong>{{$oracionUsuarioDos}}</strong></h4>
                 </div>
                 <!-- RESPUESTA CORRECTA -->
@@ -512,8 +525,8 @@
         @if (count($resultadoSeccionesIncorrectasOracionUsuarioDos) >0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos de tu respuesta son incorrectos.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes elementos de la respuesta son incorrectos.</p>
 
                 <!-- SE CAMBIO EL RESULTADOENUNCIADOPALABRASINCORRECTASUSUARIOUNO POR EL RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO QUE ANALIZA TANTO PALABRAS COMO SECCIONES
                 DE LA RESPUESTA DEL USUARIO QUE ESTEN INCORRECTAS -->
@@ -535,7 +548,7 @@
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
                 <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos ortográficos incorrectos:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en tu respuesta.</p>
+                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -557,8 +570,8 @@
 
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en tu respuesta.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -579,10 +592,8 @@
         @if (count($resultadoSeccionesQueLeFaltaronAlUsuarioDos) > 0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en tu respuesta:</strong></h5>
-                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en tu respuesta debido a que colocaste incorrectamente ciertos signos de puntuación o escribiste palabras incorrectamente.
-                    En la respuesta correcta se marcan de color verde las secciones que no se encontraron en tu oración.
-                </p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en la respuesta:</strong></h5>
+                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -632,12 +643,12 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
 
                     <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $existenEspaciosEnunciadoUno ES TRUE, ENTONCES MUESTRA LA RESPUESTA CON LOS "_" Y EL
                     MENSAJE QUE HAY ESPACIOS ADICIONALES EN LA RESPUESTA, PERO SI ES FALSE, ES DECIR NO TIENE ESPACIOS, SOLO SE MUESTRA LA RESPUESTA DEL USUARIO -->
                     @if ($existenEspaciosOracionTres)
-                        <label class="h6 text-justify">Si tu respuesta posee "_" dentro del enunciado, significa que agregaste espacios adicionales entre palabras o signos.</label>
+                        <label class="h6 text-justify">Si la respuesta posee "_" dentro del enunciado, significa que agregó espacios adicionales entre palabras o signos.</label>
                         <h4 class="text-justify m-4"><strong>{{$stringSeccionesOracionUsuarioTres}}</strong></h4>
                         
                     @else
@@ -658,7 +669,7 @@
                         (count($resultadoSignosQueLeFaltaronAlUsuarioTres) === 0) && (count($resultadoSeccionesQueLeFaltaronAlUsuarioTres) === 0))
                         
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
 
                         </div>  
 
@@ -667,15 +678,15 @@
                         <!-- SI LA RESPUESTA TIENE ESPACIOS EN BLANCO Y ADEMAS TIENE OTROS ELEMENTOS INCORRECTOS QUE APAREZCA ESTE MENSAJE -->
                         @if ($mensajeEspacioBlancoOracionTres === true)
                             <div class="px-5 py-4 border-top border-bottom m-2">
-                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta original. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
                             
                             </div>
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
-                                    <strong>*Se han eliminado los espacios adicionales que agregaste en tu respuesta*.</strong></h5>
+                                    <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
                             </div>
                         @else 
@@ -683,7 +694,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -691,14 +702,21 @@
                         
                         <!-- GRID QUE MUESTRA DE COLOR ROJO LOS ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de tu respuesta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color rojo los elementos incorrectos de tu respuesta.</p>
+                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de la respuesta:</strong></h5>
+                            <p class="text-start mt-4">Si la respuesta tiene elementos marcados de color rojo, posee elementos incorrectos. Estos elementos son incorrectos por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">Ha agregado palabras incorrectas.</li>
+                            <li class="text-start mt-4">Ha agregado signos de puntuación de forma incorrecta.</li>
+                            <li class="text-start mt-4">Ha agregado una misma palabra más veces de las necesarias.</li>
                             <h4 id="oracionusuariotres" class="text-justify mt-4">{{$oracionUsuarioTres}}</h4>
                         </div>
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Comparación con la respuesta correcta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color verde los elementos de la respuesta correcta que no se encontraron en tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en la respuesta. Estos elementos no se han encontrado en la respuesta por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">La respuesta no contiene la palabra marcada.</li>
+                            <li class="text-start mt-4">La respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
+                            <li class="text-start mt-4">La respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
+                            <li class="text-start mt-4">Ha omitido la palabra marcada en la respuesta.</li>
                             <h4 id="oracioncorrectatres" class="text-justify mt-4">{{$oracionCorrectaTres}}</h4>
                         </div>
                         
@@ -725,7 +743,7 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Respuesta usuario:</strong></h5>
                     <h4 id="oracionusuariotres" class="text-justify mt-4"><strong>{{$oracionUsuarioTres}}</strong></h4>
                 </div>
                 <!-- RESPUESTA CORRECTA -->
@@ -743,8 +761,8 @@
         @if (count($resultadoSeccionesIncorrectasOracionUsuarioTres) >0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos de tu respuesta son incorrectos.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes elementos de la respuesta son incorrectos.</p>
 
                 <!-- SE CAMBIO EL RESULTADOENUNCIADOPALABRASINCORRECTASUSUARIOUNO POR EL RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO QUE ANALIZA TANTO PALABRAS COMO SECCIONES
                 DE LA RESPUESTA DEL USUARIO QUE ESTEN INCORRECTAS -->
@@ -766,7 +784,7 @@
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
                 <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos ortográficos incorrectos:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en tu respuesta.</p>
+                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -788,8 +806,8 @@
 
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en tu respuesta.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -810,10 +828,8 @@
         @if (count($resultadoSeccionesQueLeFaltaronAlUsuarioTres) > 0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en tu respuesta:</strong></h5>
-                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en tu respuesta debido a que colocaste incorrectamente ciertos signos de puntuación o escribiste palabras incorrectamente.
-                    En la respuesta correcta se marcan de color verde las secciones que no se encontraron en tu oración.
-                </p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en la respuesta:</strong></h5>
+                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -864,12 +880,12 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
 
                     <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $existenEspaciosEnunciadoUno ES TRUE, ENTONCES MUESTRA LA RESPUESTA CON LOS "_" Y EL
                     MENSAJE QUE HAY ESPACIOS ADICIONALES EN LA RESPUESTA, PERO SI ES FALSE, ES DECIR NO TIENE ESPACIOS, SOLO SE MUESTRA LA RESPUESTA DEL USUARIO -->
                     @if ($existenEspaciosOracionCuatro)
-                        <label class="h6 text-justify">Si tu respuesta posee "_" dentro del enunciado, significa que agregaste espacios adicionales entre palabras o signos.</label>
+                        <label class="h6 text-justify">Si la respuesta posee "_" dentro del enunciado, significa que agregó espacios adicionales entre palabras o signos.</label>
                         <h4 class="text-justify m-4"><strong>{{$stringSeccionesOracionUsuarioCuatro}}</strong></h4>
                         
                     @else
@@ -890,7 +906,7 @@
                         (count($resultadoSignosQueLeFaltaronAlUsuarioCuatro) === 0) && (count($resultadoSeccionesQueLeFaltaronAlUsuarioCuatro) === 0))
                         
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
 
                         </div>  
 
@@ -899,15 +915,15 @@
                         <!-- SI LA RESPUESTA TIENE ESPACIOS EN BLANCO Y ADEMAS TIENE OTROS ELEMENTOS INCORRECTOS QUE APAREZCA ESTE MENSAJE -->
                         @if ($mensajeEspacioBlancoOracionCuatro === true)
                             <div class="px-5 py-4 border-top border-bottom m-2">
-                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta original. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
                             
                             </div>
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
-                                    <strong>*Se han eliminado los espacios adicionales que agregaste en tu respuesta*.</strong></h5>
+                                    <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
                             </div>
                         @else 
@@ -915,7 +931,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -923,14 +939,21 @@
                         
                         <!-- GRID QUE MUESTRA DE COLOR ROJO LOS ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de tu respuesta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color rojo los elementos incorrectos de tu respuesta.</p>
+                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de la respuesta:</strong></h5>
+                            <p class="text-start mt-4">Si la respuesta tiene elementos marcados de color rojo, posee elementos incorrectos. Estos elementos son incorrectos por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">Ha agregado palabras incorrectas.</li>
+                            <li class="text-start mt-4">Ha agregado signos de puntuación de forma incorrecta.</li>
+                            <li class="text-start mt-4">Ha agregado una misma palabra más veces de las necesarias.</li>
                             <h4 id="oracionusuariocuatro" class="text-justify mt-4">{{$oracionUsuarioCuatro}}</h4>
                         </div>
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Comparación con la respuesta correcta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color verde los elementos de la respuesta correcta que no se encontraron en tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en la respuesta. Estos elementos no se han encontrado en la respuesta por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">La respuesta no contiene la palabra marcada.</li>
+                            <li class="text-start mt-4">La respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
+                            <li class="text-start mt-4">La respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
+                            <li class="text-start mt-4">Ha omitido la palabra marcada en la respuesta.</li>
                             <h4 id="oracioncorrectacuatro" class="text-justify mt-4">{{$oracionCorrectaCuatro}}</h4>
                         </div>
                         
@@ -957,7 +980,7 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Respuesta usuario:</strong></h5>
                     <h4 id="oracionusuariocuatro" class="text-justify mt-4"><strong>{{$oracionUsuarioCuatro}}</strong></h4>
                 </div>
                 <!-- RESPUESTA CORRECTA -->
@@ -975,8 +998,8 @@
         @if (count($resultadoSeccionesIncorrectasOracionUsuarioCuatro) >0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos de tu respuesta son incorrectos.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes elementos de la respuesta son incorrectos.</p>
 
                 <!-- SE CAMBIO EL RESULTADOENUNCIADOPALABRASINCORRECTASUSUARIOUNO POR EL RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO QUE ANALIZA TANTO PALABRAS COMO SECCIONES
                 DE LA RESPUESTA DEL USUARIO QUE ESTEN INCORRECTAS -->
@@ -998,7 +1021,7 @@
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
                 <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos ortográficos incorrectos:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en tu respuesta.</p>
+                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -1020,8 +1043,8 @@
 
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en tu respuesta.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -1042,10 +1065,8 @@
         @if (count($resultadoSeccionesQueLeFaltaronAlUsuarioCuatro) > 0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Las siguientes secciones no se encontraron en tu respuesta debido a que colocaste incorrectamente ciertos signos de puntuación o escribiste palabras incorrectamente.
-                    En la respuesta correcta se marcan de color verde las secciones que no se encontraron en tu oración.
-                </p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Las siguientes secciones no se encontraron en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -1094,12 +1115,12 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
 
                     <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $existenEspaciosEnunciadoUno ES TRUE, ENTONCES MUESTRA LA RESPUESTA CON LOS "_" Y EL
                     MENSAJE QUE HAY ESPACIOS ADICIONALES EN LA RESPUESTA, PERO SI ES FALSE, ES DECIR NO TIENE ESPACIOS, SOLO SE MUESTRA LA RESPUESTA DEL USUARIO -->
                     @if ($existenEspaciosOracionCinco)
-                        <label class="h6 text-justify">Si tu respuesta posee "_" dentro del enunciado, significa que agregaste espacios adicionales entre palabras o signos.</label>
+                        <label class="h6 text-justify">Si la respuesta posee "_" dentro del enunciado, significa que agregó espacios adicionales entre palabras o signos.</label>
                         <h4 class="text-justify m-4"><strong>{{$stringSeccionesOracionUsuarioCinco}}</strong></h4>
                         
                     @else
@@ -1120,7 +1141,7 @@
                         (count($resultadoSignosQueLeFaltaronAlUsuarioCinco) === 0) && (count($resultadoSeccionesQueLeFaltaronAlUsuarioCinco) === 0))
                         
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                            <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
 
                         </div>  
 
@@ -1129,15 +1150,15 @@
                         <!-- SI LA RESPUESTA TIENE ESPACIOS EN BLANCO Y ADEMAS TIENE OTROS ELEMENTOS INCORRECTOS QUE APAREZCA ESTE MENSAJE -->
                         @if ($mensajeEspacioBlancoOracionCinco === true)
                             <div class="px-5 py-4 border-top border-bottom m-2">
-                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa tu respuesta original. Haz agregado espacios en blanco adicionales "_" en tu respuesta.</strong></h5>
+                                <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisa la respuesta original del usuario. Se ha agregado espacios en blanco adicionales "_" en la respuesta.</strong></h5>
                             
                             </div>
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
-                                    <strong>*Se han eliminado los espacios adicionales que agregaste en tu respuesta*.</strong></h5>
+                                    <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
                             </div>
                         @else 
@@ -1145,7 +1166,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de tu respuesta.</strong></h5>
+                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -1153,14 +1174,21 @@
                         
                         <!-- GRID QUE MUESTRA DE COLOR ROJO LOS ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
-                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de tu respuesta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color rojo los elementos incorrectos de tu respuesta.</p>
+                            <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Revisión de la respuesta:</strong></h5>
+                            <p class="text-start mt-4">Si la respuesta tiene elementos marcados de color rojo, posee elementos incorrectos. Estos elementos son incorrectos por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">Ha agregado palabras incorrectas.</li>
+                            <li class="text-start mt-4">Ha agregado signos de puntuación de forma incorrecta.</li>
+                            <li class="text-start mt-4">Ha agregado una misma palabra más veces de las necesarias.</li>
                             <h4 id="oracionusuariocinco" class="text-justify mt-4">{{$oracionUsuarioCinco}}</h4>
                         </div>
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="px-5 py-4 border-top border-bottom m-2">
                             <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Comparación con la respuesta correcta:</strong></h5>
-                            <p class="text-start mt-4">Se marcan de color verde los elementos de la respuesta correcta que no se encontraron en tu respuesta.</p>
+                            <p class="text-start mt-4">Si la respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en la respuesta. Estos elementos no se han encontrado en la respuesta por alguna de las siguientes razones:</p>
+                            <li class="text-start mt-4">La respuesta no contiene la palabra marcada.</li>
+                            <li class="text-start mt-4">La respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
+                            <li class="text-start mt-4">La respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
+                            <li class="text-start mt-4">Ha omitido la palabra marcada en la respuesta.</li>
                             <h4 id="oracioncorrectacinco" class="text-justify mt-4">{{$oracionCorrectaCinco}}</h4>
                         </div>
                         
@@ -1188,7 +1216,7 @@
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Tu respuesta:</strong></h5>
+                    <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Respuesta usuario:</strong></h5>
                     <h4 id="oracionusuariocinco" class="text-justify mt-4"><strong>{{$oracionUsuarioCinco}}</strong></h4>
                 </div>
                 <!-- RESPUESTA CORRECTA -->
@@ -1206,8 +1234,8 @@
         @if (count($resultadoSeccionesIncorrectasOracionUsuarioCinco) >0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos de tu respuesta son incorrectos.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes elementos de la respuesta son incorrectos.</p>
 
                 <!-- SE CAMBIO EL RESULTADOENUNCIADOPALABRASINCORRECTASUSUARIOUNO POR EL RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO QUE ANALIZA TANTO PALABRAS COMO SECCIONES
                 DE LA RESPUESTA DEL USUARIO QUE ESTEN INCORRECTAS -->
@@ -1229,7 +1257,7 @@
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
                 <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos ortográficos incorrectos:</strong></h5>
-                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en tu respuesta.</p>
+                <p class="text-start mt-4">Los siguientes elementos ortográficos incorrectos fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -1251,8 +1279,8 @@
 
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en tu respuesta:</strong></h5>
-                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en tu respuesta.</p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Signos de puntuación no encontrados en la respuesta:</strong></h5>
+                <p class="text-start mt-4">Los siguientes signos de puntuación no fueron encontrados en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -1273,10 +1301,8 @@
         @if (count($resultadoSeccionesQueLeFaltaronAlUsuarioCinco) > 0)
             <!-- GRID QUE MUESTRA LAS PALABRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA -->
             <div class="px-5 py-4 border-top border-bottom m-2">
-                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en tu respuesta:</strong></h5>
-                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en tu respuesta debido a que colocaste incorrectamente ciertos signos de puntuación o escribiste palabras incorrectamente.
-                    En la respuesta correcta se marcan de color verde las secciones que no se encontraron en tu oración.
-                </p>
+                <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Secciones de la respuesta correcta no encontradas en la respuesta:</strong></h5>
+                <p class="text-justify mt-4">Las siguientes secciones no se encontraron en la respuesta.</p>
 
                 
                 <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>

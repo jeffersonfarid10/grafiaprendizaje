@@ -2549,11 +2549,47 @@ class AllResultsController extends Controller
                 //SE RECORREN TODOS LOS ELEMENTOS DEL ARRAYSECCIONESORACIONCORRECTAUNO Y SE COMPARAN CON LOS SIGNOS DEL ARRAYSECCIONESORACIONUSUARIOUNO
                 //Y LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO ESTEN EN LA RESPUESTA DEL USUARIO SE ALMACENAN EN EL ARRAU
                 //RESULTADOSSECCIONESQUELEFALTARONALUSUARIOUNO
-                for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaUno; $d++){
-                    if(!in_array($arraySeccionesOracionCorrectaUno[$d], $arraySeccionesOracionUsuarioUno)){
-                        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesOracionCorrectaUno[$d]);
+
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONUSUARIOUNO
+                //for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaUno; $d++){
+                //    if(!in_array($arraySeccionesOracionCorrectaUno[$d], $arraySeccionesOracionUsuarioUno)){
+                //        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesOracionCorrectaUno[$d]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionUno = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionUno = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaUno; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaUno; $y++){
+                        $compararoracionuno = strcmp($arraySeccionesOracionCorrectaUno[$u], $arraySeccionesOracionCorrectaUno[$y]);
+                        if ($compararoracionuno === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionUno++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioUno); $z++){
+                        $compararoracionunousuario = strcmp($arraySeccionesOracionCorrectaUno[$u], $arraySeccionesOracionUsuarioUno[$z]);
+                        if($compararoracionunousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionUno++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionUno > $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionUno)){
+                        if (!in_array($arraySeccionesOracionCorrectaUno[$u], $resultadoSeccionesQueLeFaltaronAlUsuarioUno)){
+                            array_push($resultadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesOracionCorrectaUno[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionUno = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionUno = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
                 //ACTUALIZACION
                 //EN EL ARRAY COMENTADO SE AGREGARAN LAS SECCIONES DE ORACION UNO DEL USUARIO QUE NO COINCIDAN CON LAS SECCIONES DE LA ORACION CORRECTA UNO
@@ -2561,14 +2597,63 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioUno; $p++){
 
-                    if(!in_array($arraySeccionesOracionUsuarioUno[$p], $arraySeccionesOracionCorrectaUno)){
-                        array_push($resultadoSeccionesIncorrectasOracionUsuarioUno, $arraySeccionesOracionUsuarioUno[$p]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO
+                //for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioUno; $p++){
+                //
+                //    if(!in_array($arraySeccionesOracionUsuarioUno[$p], $arraySeccionesOracionCorrectaUno)){
+                //        array_push($resultadoSeccionesIncorrectasOracionUsuarioUno, $arraySeccionesOracionUsuarioUno[$p]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesIncorrectasOracionUsuarioUno;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesOracionUsuarioUno; $b++){
+                    if(!in_array($arraySeccionesOracionUsuarioUno[$b], $arraySeccionesOracionCorrectaUno)){
+                        array_push($resultadoSeccionesIncorrectasOracionUsuarioUno, $arraySeccionesOracionUsuarioUno[$b]);
                     }
                 }
 
-                //return $resultadoSeccionesIncorrectasOracionUsuarioUno;
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionUno = 0;
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionUno = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaUno; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaUno; $y++){
+                        $compararoracionuno = strcmp($arraySeccionesOracionCorrectaUno[$u], $arraySeccionesOracionCorrectaUno[$y]);
+                        if ($compararoracionuno === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionUno++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioUno); $z++){
+                        $compararoracionunousuario = strcmp($arraySeccionesOracionCorrectaUno[$u], $arraySeccionesOracionUsuarioUno[$z]);
+                        if($compararoracionunousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionUno++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionUno < $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionUno)){
+                        if (!in_array($arraySeccionesOracionCorrectaUno[$u], $resultadoSeccionesIncorrectasOracionUsuarioUno)){
+                            array_push($resultadoSeccionesIncorrectasOracionUsuarioUno, $arraySeccionesOracionCorrectaUno[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionUno = 0;
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionUno = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
 
@@ -2827,11 +2912,46 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaDos; $d++){
-                    if(!in_array($arraySeccionesOracionCorrectaDos[$d], $arraySeccionesOracionUsuarioDos)){
-                        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesOracionCorrectaDos[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAL RESULTADOSECCIONESQUELEFALTARONALUSUARIODOS
+                //for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaDos; $d++){
+                //    if(!in_array($arraySeccionesOracionCorrectaDos[$d], $arraySeccionesOracionUsuarioDos)){
+                //        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesOracionCorrectaDos[$d]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIODOS FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionDos = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaDos; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaDos; $y++){
+                        $compararoraciondos = strcmp($arraySeccionesOracionCorrectaDos[$u], $arraySeccionesOracionCorrectaDos[$y]);
+                        if ($compararoraciondos === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionDos++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioDos); $z++){
+                        $compararoraciondosusuario = strcmp($arraySeccionesOracionCorrectaDos[$u], $arraySeccionesOracionUsuarioDos[$z]);
+                        if($compararoraciondosusuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionDos++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionDos > $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionDos)){
+                        if (!in_array($arraySeccionesOracionCorrectaDos[$u], $resultadoSeccionesQueLeFaltaronAlUsuarioDos)){
+                            array_push($resultadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesOracionCorrectaDos[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionDos = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionDos = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIODOS
+
 
                 //ACTUALIZACION
                 //EN EL ARRAY COMENTADO SE AGREGARAN LAS SECCIONES DE ORACION UNO DEL USUARIO QUE NO COINCIDAN CON LAS SECCIONES DE LA ORACION CORRECTA UNO
@@ -2839,14 +2959,64 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioDos; $p++){
 
-                    if(!in_array($arraySeccionesOracionUsuarioDos[$p], $arraySeccionesOracionCorrectaDos)){
-                        array_push($resultadoSeccionesIncorrectasOracionUsuarioDos, $arraySeccionesOracionUsuarioDos[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIODOS
+                //for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioDos; $p++){
+                //
+                //    if(!in_array($arraySeccionesOracionUsuarioDos[$p], $arraySeccionesOracionCorrectaDos)){
+                //        array_push($resultadoSeccionesIncorrectasOracionUsuarioDos, $arraySeccionesOracionUsuarioDos[$p]);
+                //    }
+                //}
 
                 //return $resultadoSeccionesIncorrectasOracionUsuarioDos;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIODOS FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesOracionUsuarioDos; $b++){
+                    if(!in_array($arraySeccionesOracionUsuarioDos[$b], $arraySeccionesOracionCorrectaDos)){
+                        array_push($resultadoSeccionesIncorrectasOracionUsuarioDos, $arraySeccionesOracionUsuarioDos[$b]);
+                    } 
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionDos = 0;
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaDos; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaDos; $y++){
+                        $compararoraciondos = strcmp($arraySeccionesOracionCorrectaDos[$u], $arraySeccionesOracionCorrectaDos[$y]);
+                        if ($compararoraciondos === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionDos++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioDos); $z++){
+                        $compararoraciondosusuario = strcmp($arraySeccionesOracionCorrectaDos[$u], $arraySeccionesOracionUsuarioDos[$z]);
+                        if($compararoraciondosusuario === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionDos++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionDos < $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionDos)){
+                        if (!in_array($arraySeccionesOracionCorrectaDos[$u], $resultadoSeccionesIncorrectasOracionUsuarioDos)){
+                            array_push($resultadoSeccionesIncorrectasOracionUsuarioDos, $arraySeccionesOracionCorrectaDos[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionDos = 0;
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionDos = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+
 
 
 
@@ -3069,11 +3239,47 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaTres; $d++){
-                    if(!in_array($arraySeccionesOracionCorrectaTres[$d], $arraySeccionesOracionUsuarioTres)){
-                        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesOracionCorrectaTres[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOTRES
+                //for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaTres; $d++){
+                //    if(!in_array($arraySeccionesOracionCorrectaTres[$d], $arraySeccionesOracionUsuarioTres)){
+                //        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesOracionCorrectaTres[$d]);
+                //    }
+                //}
+
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionTres = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionTres = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaTres; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaTres; $y++){
+                        $compararoraciontres = strcmp($arraySeccionesOracionCorrectaTres[$u], $arraySeccionesOracionCorrectaTres[$y]);
+                        if ($compararoraciontres === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionTres++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioTres); $z++){
+                        $compararoraciontresusuario = strcmp($arraySeccionesOracionCorrectaTres[$u], $arraySeccionesOracionUsuarioTres[$z]);
+                        if($compararoraciontresusuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionTres++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionTres > $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionTres)){
+                        if (!in_array($arraySeccionesOracionCorrectaTres[$u], $resultadoSeccionesQueLeFaltaronAlUsuarioTres)){
+                            array_push($resultadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesOracionCorrectaTres[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionTres = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionTres = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
 
                 //ACTUALIZACION
@@ -3082,14 +3288,63 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioTres; $p++){
 
-                    if(!in_array($arraySeccionesOracionUsuarioTres[$p], $arraySeccionesOracionCorrectaTres)){
-                        array_push($resultadoSeccionesIncorrectasOracionUsuarioTres, $arraySeccionesOracionUsuarioTres[$p]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOTRES
+                //for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioTres; $p++){
+                //
+                //    if(!in_array($arraySeccionesOracionUsuarioTres[$p], $arraySeccionesOracionCorrectaTres)){
+                //        array_push($resultadoSeccionesIncorrectasOracionUsuarioTres, $arraySeccionesOracionUsuarioTres[$p]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesIncorrectasOracionUsuarioTres;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesOracionUsuarioTres; $b++){
+                    if(!in_array($arraySeccionesOracionUsuarioTres[$b], $arraySeccionesOracionCorrectaTres)){
+                        array_push($resultadoSeccionesIncorrectasOracionUsuarioTres, $arraySeccionesOracionUsuarioTres[$b]);
                     }
                 }
 
-                //return $resultadoSeccionesIncorrectasOracionUsuarioTres;
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionTres = 0;
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionTres = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaTres; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaTres; $y++){
+                        $compararoraciontres = strcmp($arraySeccionesOracionCorrectaTres[$u], $arraySeccionesOracionCorrectaTres[$y]);
+                        if ($compararoraciontres === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionTres++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioTres); $z++){
+                        $compararoraciontresusuario = strcmp($arraySeccionesOracionCorrectaTres[$u], $arraySeccionesOracionUsuarioTres[$z]);
+                        if($compararoraciontresusuario === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionTres++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionTres < $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionTres)){
+                        if (!in_array($arraySeccionesOracionCorrectaTres[$u], $resultadoSeccionesIncorrectasOracionUsuarioTres)){
+                            array_push($resultadoSeccionesIncorrectasOracionUsuarioTres, $arraySeccionesOracionCorrectaTres[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionTres = 0;
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionTres = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
 
@@ -3313,11 +3568,47 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaCuatro; $d++){
-                    if(!in_array($arraySeccionesOracionCorrectaCuatro[$d], $arraySeccionesOracionUsuarioCuatro)){
-                        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesOracionCorrectaCuatro[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOCUATRO
+                //for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaCuatro; $d++){
+                //    if(!in_array($arraySeccionesOracionCorrectaCuatro[$d], $arraySeccionesOracionUsuarioCuatro)){
+                //        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesOracionCorrectaCuatro[$d]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCuatro = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCuatro = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaCuatro; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaCuatro; $y++){
+                        $compararoracioncuatro = strcmp($arraySeccionesOracionCorrectaCuatro[$u], $arraySeccionesOracionCorrectaCuatro[$y]);
+                        if ($compararoracioncuatro === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCuatro++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioCuatro); $z++){
+                        $compararoracioncuatrousuario = strcmp($arraySeccionesOracionCorrectaCuatro[$u], $arraySeccionesOracionUsuarioCuatro[$z]);
+                        if($compararoracioncuatrousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCuatro++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCuatro > $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCuatro)){
+                        if (!in_array($arraySeccionesOracionCorrectaCuatro[$u], $resultadoSeccionesQueLeFaltaronAlUsuarioCuatro)){
+                            array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesOracionCorrectaCuatro[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCuatro = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCuatro = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
+
 
                 //ACTUALIZACION
                 //EN EL ARRAY COMENTADO SE AGREGARAN LAS SECCIONES DE ORACION UNO DEL USUARIO QUE NO COINCIDAN CON LAS SECCIONES DE LA ORACION CORRECTA UNO
@@ -3325,14 +3616,63 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioCuatro; $p++){
 
-                    if(!in_array($arraySeccionesOracionUsuarioCuatro[$p], $arraySeccionesOracionCorrectaCuatro)){
-                        array_push($resultadoSeccionesIncorrectasOracionUsuarioCuatro, $arraySeccionesOracionUsuarioCuatro[$p]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOCUATRO
+                //for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioCuatro; $p++){
+                //
+                //    if(!in_array($arraySeccionesOracionUsuarioCuatro[$p], $arraySeccionesOracionCorrectaCuatro)){
+                //        array_push($resultadoSeccionesIncorrectasOracionUsuarioCuatro, $arraySeccionesOracionUsuarioCuatro[$p]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesIncorrectasOracionUsuarioCuatro;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesOracionUsuarioCuatro; $b++){
+                    if(!in_array($arraySeccionesOracionUsuarioCuatro[$b], $arraySeccionesOracionCorrectaCuatro)){
+                        array_push($resultadoSeccionesIncorrectasOracionUsuarioCuatro, $arraySeccionesOracionUsuarioCuatro[$b]);
                     }
                 }
 
-                //return $resultadoSeccionesIncorrectasOracionUsuarioCuatro;
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCuatro = 0;
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCuatro = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaCuatro; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaCuatro; $y++){
+                        $compararoracioncuatro = strcmp($arraySeccionesOracionCorrectaCuatro[$u], $arraySeccionesOracionCorrectaCuatro[$y]);
+                        if ($compararoracioncuatro === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCuatro++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioCuatro); $z++){
+                        $compararoracioncuatrousuario = strcmp($arraySeccionesOracionCorrectaCuatro[$u], $arraySeccionesOracionUsuarioCuatro[$z]);
+                        if($compararoracioncuatrousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCuatro++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCuatro < $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCuatro)){
+                        if (!in_array($arraySeccionesOracionCorrectaCuatro[$u], $resultadoSeccionesIncorrectasOracionUsuarioCuatro)){
+                            array_push($resultadoSeccionesIncorrectasOracionUsuarioCuatro, $arraySeccionesOracionCorrectaCuatro[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCuatro = 0;
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCuatro = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
 
@@ -3556,11 +3896,46 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaCinco; $d++){
-                    if(!in_array($arraySeccionesOracionCorrectaCinco[$d], $arraySeccionesOracionUsuarioCinco)){
-                        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesOracionCorrectaCinco[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTOADOSECCIONESQUELEFALTARONALUSUARIOCINCO
+                //for($d=0; $d<$nroElementosArraySeccionesOracionCorrectaCinco; $d++){
+                //    if(!in_array($arraySeccionesOracionCorrectaCinco[$d], $arraySeccionesOracionUsuarioCinco)){
+                //        array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesOracionCorrectaCinco[$d]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCinco = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCinco = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaCinco; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaCinco; $y++){
+                        $compararoracioncinco = strcmp($arraySeccionesOracionCorrectaCinco[$u], $arraySeccionesOracionCorrectaCinco[$y]);
+                        if ($compararoracioncinco === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCinco++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioCinco); $z++){
+                        $compararoracioncincousuario = strcmp($arraySeccionesOracionCorrectaCinco[$u], $arraySeccionesOracionUsuarioCinco[$z]);
+                        if($compararoracioncincousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCinco++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCinco > $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCinco)){
+                        if (!in_array($arraySeccionesOracionCorrectaCinco[$u], $resultadoSeccionesQueLeFaltaronAlUsuarioCinco)){
+                            array_push($resultadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesOracionCorrectaCinco[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoOracionCinco = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosOracionCinco = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
 
                 //ACTUALIZACION
@@ -3569,14 +3944,63 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioCinco; $p++){
 
-                    if(!in_array($arraySeccionesOracionUsuarioCinco[$p], $arraySeccionesOracionCorrectaCinco)){
-                        array_push($resultadoSeccionesIncorrectasOracionUsuarioCinco, $arraySeccionesOracionUsuarioCinco[$p]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOCINCO
+                //for($p=0; $p<$nroElementosArraySeccionesOracionUsuarioCinco; $p++){
+                //
+                //    if(!in_array($arraySeccionesOracionUsuarioCinco[$p], $arraySeccionesOracionCorrectaCinco)){
+                //        array_push($resultadoSeccionesIncorrectasOracionUsuarioCinco, $arraySeccionesOracionUsuarioCinco[$p]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesIncorrectasOracionUsuarioCinco;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesOracionUsuarioCinco; $b++){
+                    if(!in_array($arraySeccionesOracionUsuarioCinco[$b], $arraySeccionesOracionCorrectaCinco)){
+                        array_push($resultadoSeccionesIncorrectasOracionUsuarioCinco, $arraySeccionesOracionUsuarioCinco[$b]);
                     }
                 }
 
-                //return $resultadoSeccionesIncorrectasOracionUsuarioCinco;
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCinco = 0;
+                $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCinco = 0;
+                for($u=0; $u<$nroElementosArraySeccionesOracionCorrectaCinco; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesOracionCorrectaCinco; $y++){
+                        $compararoracioncinco = strcmp($arraySeccionesOracionCorrectaCinco[$u], $arraySeccionesOracionCorrectaCinco[$y]);
+                        if ($compararoracioncinco === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCinco++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesOracionUsuarioCinco); $z++){
+                        $compararoracioncincousuario = strcmp($arraySeccionesOracionCorrectaCinco[$u], $arraySeccionesOracionUsuarioCinco[$z]);
+                        if($compararoracioncincousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCinco++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCinco < $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCinco)){
+                        if (!in_array($arraySeccionesOracionCorrectaCinco[$u], $resultadoSeccionesIncorrectasOracionUsuarioCinco)){
+                            array_push($resultadoSeccionesIncorrectasOracionUsuarioCinco, $arraySeccionesOracionCorrectaCinco[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioUnoOracionCinco = 0;
+                    $contadorResultadoSeccionesIncorrectasOracionUsuarioDosOracionCinco = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
                 //ACTUALIZACION
@@ -4120,11 +4544,48 @@ class AllResultsController extends Controller
                 //SE RECORREN TODOS LOS ELEMNTOS DELE ARRAYSECCIONESENUNCIADOCORRECTOUNO Y SE COMPARAN CON LOS ELEMENTOS DEL ARRAYSECCIONESENUNCIADOUSUARIOUNO
                 //Y LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO ESTEN EN LA RESPUESTA DEL USUARIO SE ALMACENAN EN EL ARRAY
                 //RESULTADOSENUNCIADOSECCIONESQUELEFALTARONALUSUARIOUNO
-                for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoUno; $y++){
-                    if(!in_array($arraySeccionesEnunciadoCorrectoUno[$y], $arraySeccionesEnunciadoUsuarioUno)){
-                        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesEnunciadoCorrectoUno[$y]);
+
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOENUNCIADOSECCIONESQUELEFALTARONALUSUARIOUNO
+                //for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoUno; $y++){
+                //    if(!in_array($arraySeccionesEnunciadoCorrectoUno[$y], $arraySeccionesEnunciadoUsuarioUno)){
+                //        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesEnunciadoCorrectoUno[$y]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoUno = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoUno = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoUno; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoUno; $y++){
+                        $compararenunciadouno = strcmp($arraySeccionesEnunciadoCorrectoUno[$u], $arraySeccionesEnunciadoCorrectoUno[$y]);
+                        if ($compararenunciadouno === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoUno++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioUno); $z++){
+                        $compararenunciadounousuario = strcmp($arraySeccionesEnunciadoCorrectoUno[$u], $arraySeccionesEnunciadoUsuarioUno[$z]);
+                        if($compararenunciadounousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoUno++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoUno > $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoUno)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoUno[$u], $resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioUno)){
+                            array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioUno, $arraySeccionesEnunciadoCorrectoUno[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoUno = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoUno = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
+
 
 
                 //ACTUALIZACION
@@ -4133,15 +4594,64 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioUno; $p++){
 
-                    if(!in_array($arraySeccionesEnunciadoUsuarioUno[$p], $arraySeccionesEnunciadoCorrectoUno)){
-                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioUno, $arraySeccionesEnunciadoUsuarioUno[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOUNO
+                //for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioUno; $p++){
+                //
+                //    if(!in_array($arraySeccionesEnunciadoUsuarioUno[$p], $arraySeccionesEnunciadoCorrectoUno)){
+                //        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioUno, $arraySeccionesEnunciadoUsuarioUno[$p]);
+                //    }
+                //}
 
 
                 //return $resultadoSeccionesIncorrectasEnunciadoUsuarioUno;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesEnunciadoUsuarioUno; $b++){
+                    if(!in_array($arraySeccionesEnunciadoUsuarioUno[$b], $arraySeccionesEnunciadoCorrectoUno)){
+                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioUno, $arraySeccionesEnunciadoUsuarioUno[$b]);
+                    }
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoUno = 0;
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoUno = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoUno; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoUno; $y++){
+                        $compararenunciadouno = strcmp($arraySeccionesEnunciadoCorrectoUno[$u], $arraySeccionesEnunciadoCorrectoUno[$y]);
+                        if ($compararenunciadouno === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoUno++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioUno); $z++){
+                        $compararenunciadounousuario = strcmp($arraySeccionesEnunciadoCorrectoUno[$u], $arraySeccionesEnunciadoUsuarioUno[$z]);
+                        if($compararenunciadounousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoUno++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoUno < $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoUno)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoUno[$u], $resultadoSeccionesIncorrectasEnunciadoUsuarioUno)){
+                            array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioUno, $arraySeccionesEnunciadoCorrectoUno[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoUno = 0;
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoUno = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
                 //ACTUALIZACION
@@ -4372,11 +4882,47 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoDos; $y++){
-                    if(!in_array($arraySeccionesEnunciadoCorrectoDos[$y], $arraySeccionesEnunciadoUsuarioDos)){
-                        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesEnunciadoCorrectoDos[$y]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOENUNCIADOSECCIONESQUELEFALTARONALUSUARIODOS
+                //for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoDos; $y++){
+                //    if(!in_array($arraySeccionesEnunciadoCorrectoDos[$y], $arraySeccionesEnunciadoUsuarioDos)){
+                //        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesEnunciadoCorrectoDos[$y]);
+                //    }
+                //}
+
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoDos = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoDos; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoDos; $y++){
+                        $compararenunciadodos = strcmp($arraySeccionesEnunciadoCorrectoDos[$u], $arraySeccionesEnunciadoCorrectoDos[$y]);
+                        if ($compararenunciadodos === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoDos++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioDos); $z++){
+                        $compararenunciadodosusuario = strcmp($arraySeccionesEnunciadoCorrectoDos[$u], $arraySeccionesEnunciadoUsuarioDos[$z]);
+                        if($compararenunciadodosusuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoDos++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoDos > $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoDos)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoDos[$u], $resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioDos)){
+                            array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioDos, $arraySeccionesEnunciadoCorrectoDos[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoDos = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoDos = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
 
                 //ACTUALIZACION
@@ -4385,15 +4931,64 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioDos; $p++){
 
-                    if(!in_array($arraySeccionesEnunciadoUsuarioDos[$p], $arraySeccionesEnunciadoCorrectoDos)){
-                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioDos, $arraySeccionesEnunciadoUsuarioDos[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTAS ENUNCIADOUSUARIODOS
+                //for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioDos; $p++){
+                //
+                //    if(!in_array($arraySeccionesEnunciadoUsuarioDos[$p], $arraySeccionesEnunciadoCorrectoDos)){
+                //        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioDos, $arraySeccionesEnunciadoUsuarioDos[$p]);
+                //    }
+                //}
 
 
                 //return $resultadoSeccionesIncorrectasEnunciadoUsuarioDos;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesEnunciadoUsuarioDos; $b++){
+                    if(!in_array($arraySeccionesEnunciadoUsuarioDos[$b], $arraySeccionesEnunciadoCorrectoDos)){
+                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioDos, $arraySeccionesEnunciadoUsuarioDos[$b]);
+                    }
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoDos = 0;
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoDos; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoDos; $y++){
+                        $compararenunciadodos = strcmp($arraySeccionesEnunciadoCorrectoDos[$u], $arraySeccionesEnunciadoCorrectoDos[$y]);
+                        if ($compararenunciadodos === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoDos++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioDos); $z++){
+                        $compararenunciadodosusuario = strcmp($arraySeccionesEnunciadoCorrectoDos[$u], $arraySeccionesEnunciadoUsuarioDos[$z]);
+                        if($compararenunciadodosusuario === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoDos++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoDos < $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoDos)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoDos[$u], $resultadoSeccionesIncorrectasEnunciadoUsuarioDos)){
+                            array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioDos, $arraySeccionesEnunciadoCorrectoDos[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoDos = 0;
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoDos = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
                 //ACTUALIZACION
@@ -4623,11 +5218,47 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoTres; $y++){
-                    if(!in_array($arraySeccionesEnunciadoCorrectoTres[$y], $arraySeccionesEnunciadoUsuarioTres)){
-                        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesEnunciadoCorrectoTres[$y]);
+
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOENUNCIADOSECCIONESQUELEFALTARONALUSUARIOTRES
+                //for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoTres; $y++){
+                //    if(!in_array($arraySeccionesEnunciadoCorrectoTres[$y], $arraySeccionesEnunciadoUsuarioTres)){
+                //        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesEnunciadoCorrectoTres[$y]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoTres = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoTres = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoTres; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoTres; $y++){
+                        $compararenunciadotres = strcmp($arraySeccionesEnunciadoCorrectoTres[$u], $arraySeccionesEnunciadoCorrectoTres[$y]);
+                        if ($compararenunciadotres === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoTres++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioTres); $z++){
+                        $compararenunciadotresusuario = strcmp($arraySeccionesEnunciadoCorrectoTres[$u], $arraySeccionesEnunciadoUsuarioTres[$z]);
+                        if($compararenunciadotresusuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoTres++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoTres > $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoTres)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoTres[$u], $resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioTres)){
+                            array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioTres, $arraySeccionesEnunciadoCorrectoTres[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoTres = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoTres = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
 
                 //ACTUALIZACION
@@ -4636,15 +5267,65 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioTres; $p++){
 
-                    if(!in_array($arraySeccionesEnunciadoUsuarioTres[$p], $arraySeccionesEnunciadoCorrectoTres)){
-                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioTres, $arraySeccionesEnunciadoUsuarioTres[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOTRES
+                //for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioTres; $p++){
+                //
+                //    if(!in_array($arraySeccionesEnunciadoUsuarioTres[$p], $arraySeccionesEnunciadoCorrectoTres)){
+                //        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioTres, $arraySeccionesEnunciadoUsuarioTres[$p]);
+                //    }
+                //}
 
 
                 //return $resultadoSeccionesIncorrectasEnunciadoUsuarioTres;
+
+
+                 //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesEnunciadoUsuarioTres; $b++){
+                    if(!in_array($arraySeccionesEnunciadoUsuarioTres[$b], $arraySeccionesEnunciadoCorrectoTres)){
+                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioTres, $arraySeccionesEnunciadoUsuarioTres[$b]);
+                    }
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoTres = 0;
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoTres = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoTres; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoTres; $y++){
+                        $compararenunciadotres = strcmp($arraySeccionesEnunciadoCorrectoTres[$u], $arraySeccionesEnunciadoCorrectoTres[$y]);
+                        if ($compararenunciadotres === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoTres++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioTres); $z++){
+                        $compararenunciadotresusuario = strcmp($arraySeccionesEnunciadoCorrectoTres[$u], $arraySeccionesEnunciadoUsuarioTres[$z]);
+                        if($compararenunciadotresusuario === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoTres++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoTres < $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoTres)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoTres[$u], $resultadoSeccionesIncorrectasEnunciadoUsuarioTres)){
+                            array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioTres, $arraySeccionesEnunciadoCorrectoTres[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoTres = 0;
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoTres = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
                 //ACTUALIZACION
@@ -4871,11 +5552,46 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $y++){
-                    if(!in_array($arraySeccionesEnunciadoCorrectoCuatro[$y], $arraySeccionesEnunciadoUsuarioCuatro)){
-                        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesEnunciadoCorrectoCuatro[$y]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOENUNCIADOSECCIONESQUELEFALTARONALUSUARIOCUATRO
+                //for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $y++){
+                //    if(!in_array($arraySeccionesEnunciadoCorrectoCuatro[$y], $arraySeccionesEnunciadoUsuarioCuatro)){
+                //        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesEnunciadoCorrectoCuatro[$y]);
+                //    }
+                //}
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCuatro = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCuatro = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $y++){
+                        $compararenunciadocuatro = strcmp($arraySeccionesEnunciadoCorrectoCuatro[$u], $arraySeccionesEnunciadoCorrectoCuatro[$y]);
+                        if ($compararenunciadocuatro === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCuatro++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioCuatro); $z++){
+                        $compararenunciadocuatrousuario = strcmp($arraySeccionesEnunciadoCorrectoCuatro[$u], $arraySeccionesEnunciadoUsuarioCuatro[$z]);
+                        if($compararenunciadocuatrousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCuatro++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCuatro > $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCuatro)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoCuatro[$u], $resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCuatro)){
+                            array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCuatro, $arraySeccionesEnunciadoCorrectoCuatro[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCuatro = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCuatro = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
 
 
                 //ACTUALIZACION
@@ -4884,15 +5600,64 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioCuatro; $p++){
 
-                    if(!in_array($arraySeccionesEnunciadoUsuarioCuatro[$p], $arraySeccionesEnunciadoCorrectoCuatro)){
-                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro, $arraySeccionesEnunciadoUsuarioCuatro[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOCUATRO
+                //for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioCuatro; $p++){
+
+                //    if(!in_array($arraySeccionesEnunciadoUsuarioCuatro[$p], $arraySeccionesEnunciadoCorrectoCuatro)){
+                //        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro, $arraySeccionesEnunciadoUsuarioCuatro[$p]);
+                //    }
+                //}
 
 
                 //return $resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro;
+
+                //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesEnunciadoUsuarioCuatro; $b++){
+                    if(!in_array($arraySeccionesEnunciadoUsuarioCuatro[$b], $arraySeccionesEnunciadoCorrectoCuatro)){
+                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro, $arraySeccionesEnunciadoUsuarioCuatro[$b]);
+                    }
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCuatro = 0;
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCuatro = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCuatro; $y++){
+                        $compararenunciadocuatro = strcmp($arraySeccionesEnunciadoCorrectoCuatro[$u], $arraySeccionesEnunciadoCorrectoCuatro[$y]);
+                        if ($compararenunciadocuatro === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCuatro++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioCuatro); $z++){
+                        $compararenunciadocuatrousuario = strcmp($arraySeccionesEnunciadoCorrectoCuatro[$u], $arraySeccionesEnunciadoUsuarioCuatro[$z]);
+                        if($compararenunciadocuatrousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCuatro++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCuatro < $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCuatro)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoCuatro[$u], $resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro)){
+                            array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCuatro, $arraySeccionesEnunciadoCorrectoCuatro[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCuatro = 0;
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCuatro = 0;
+
+                } 
+
+                
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
 
@@ -5120,11 +5885,47 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $y++){
-                    if(!in_array($arraySeccionesEnunciadoCorrectoCinco[$y], $arraySeccionesEnunciadoUsuarioCinco)){
-                        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesEnunciadoCorrectoCinco[$y]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOENUNCIADOSECCIONESQUELEFALTARONENUNCIADOUSUARIOCINCO
+                //for($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $y++){
+                //    if(!in_array($arraySeccionesEnunciadoCorrectoCinco[$y], $arraySeccionesEnunciadoUsuarioCinco)){
+                //        array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesEnunciadoCorrectoCinco[$y]);
+                //    }
+                //} 
+
+                //////////////////////////////////////// METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO FINAL
+
+                $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCinco = 0;
+                $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCinco = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $u++){
+
+                    
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $y++){
+                        $compararenunciadocinco = strcmp($arraySeccionesEnunciadoCorrectoCinco[$u], $arraySeccionesEnunciadoCorrectoCinco[$y]);
+                        if ($compararenunciadocinco === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCinco++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioCinco); $z++){
+                        $compararenunciadocincousuario = strcmp($arraySeccionesEnunciadoCorrectoCinco[$u], $arraySeccionesEnunciadoUsuarioCinco[$z]);
+                        if($compararenunciadocincousuario === 0){
+                            $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCinco++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCinco > $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCinco)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoCinco[$u], $resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCinco)){
+                            array_push($resultadoEnunciadoSeccionesQueLeFaltaronAlUsuarioCinco, $arraySeccionesEnunciadoCorrectoCinco[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronAlUsuarioUnoEnunciadoCinco = 0;
+                    $contadorSeccionesQueLeFaltaronAlUsuarioDosEnunciadoCinco = 0;
                 }
+
+                ///////////////////////////////////////// FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONALUSUARIOUNO
+
+
 
 
                 //ACTUALIZACION
@@ -5133,15 +5934,64 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESORACIONUSUARIOUNO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DE LA ORACION CORRECTA
                 //Y LAS SECCIONES DEL ARRAYSECCIONESORACIONUSUARIOUNO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESORACIONCORRECTAUNO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioCinco; $p++){
 
-                    if(!in_array($arraySeccionesEnunciadoUsuarioCinco[$p], $arraySeccionesEnunciadoCorrectoCinco)){
-                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCinco, $arraySeccionesEnunciadoUsuarioCinco[$p]);
-                    }
-                }
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASENUNCIADOUSUARIOCINCO
+                //for($p=0; $p<$nroElementosArraySeccionesEnunciadoUsuarioCinco; $p++){
+                //
+                //    if(!in_array($arraySeccionesEnunciadoUsuarioCinco[$p], $arraySeccionesEnunciadoCorrectoCinco)){
+                //        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCinco, $arraySeccionesEnunciadoUsuarioCinco[$p]);
+                //    }
+                //}
 
 
                 //return $resultadoSeccionesIncorrectasEnunciadoUsuarioCinco;
+
+                 //////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesEnunciadoUsuarioCinco; $b++){
+                    if(!in_array($arraySeccionesEnunciadoUsuarioCinco[$b], $arraySeccionesEnunciadoCorrectoCinco)){
+                        array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCinco, $arraySeccionesEnunciadoUsuarioCinco[$b]);
+                    }
+                }
+
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCinco = 0;
+                $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCinco = 0;
+                for($u=0; $u<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesEnunciadoCorrectoCinco; $y++){
+                        $compararenunciadocinco = strcmp($arraySeccionesEnunciadoCorrectoCinco[$u], $arraySeccionesEnunciadoCorrectoCinco[$y]);
+                        if ($compararenunciadocinco === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCinco++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesEnunciadoUsuarioCinco); $z++){
+                        $compararenunciadocincousuario = strcmp($arraySeccionesEnunciadoCorrectoCinco[$u], $arraySeccionesEnunciadoUsuarioCinco[$z]);
+                        if($compararenunciadocincousuario === 0){
+                            $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCinco++;
+                        }
+                    }
+
+                    if(($contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCinco < $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCinco)){
+                        if (!in_array($arraySeccionesEnunciadoCorrectoCinco[$u], $resultadoSeccionesIncorrectasEnunciadoUsuarioCinco)){
+                            array_push($resultadoSeccionesIncorrectasEnunciadoUsuarioCinco, $arraySeccionesEnunciadoCorrectoCinco[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioUnoEnunciadoCinco = 0;
+                    $contadorResultadoSeccionesIncorrectasEnunciadoUsuarioDosEnunciadoCinco = 0;
+
+                } 
+
+
+                ///////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESINCORRECTASORACIONUSUARIOUNO FINAL
+
 
 
                 //ACTUALIZACION
@@ -5596,11 +6446,45 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesTextoCorrecto; $d++){
-                    if(!in_array($arraySeccionesTextoCorrecto[$d], $arraySeccionesTextoUsuario)){
-                        array_push($resultadoSeccionesQueLeFaltaronTextoUsuario, $arraySeccionesTextoCorrecto[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONUSUARIOUNO
+                //for($d=0; $d<$nroElementosArraySeccionesTextoCorrecto; $d++){
+                //    if(!in_array($arraySeccionesTextoCorrecto[$d], $arraySeccionesTextoUsuario)){
+                //        array_push($resultadoSeccionesQueLeFaltaronTextoUsuario, $arraySeccionesTextoCorrecto[$d]);
+                //    }
+                //}
+
+                ////////////////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSSECCIONESQUELEFALTARONTEXTOUSUARIO FINAL
+
+                $contadorSeccionesQueLeFaltaronTextoUsuarioUno = 0;
+                $contadorSeccionesQueLeFaltaronTextoUsuarioDos = 0;
+
+                for($u=0; $u<$nroElementosArraySeccionesTextoCorrecto; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesTextoCorrecto; $y++){
+                        $compararta = strcmp($arraySeccionesTextoCorrecto[$u], $arraySeccionesTextoCorrecto[$y]);
+                        if ($compararta === 0){
+                            $contadorSeccionesQueLeFaltaronTextoUsuarioUno++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesTextoUsuario); $z++){
+                        $comparartausuario = strcmp($arraySeccionesTextoCorrecto[$u], $arraySeccionesTextoUsuario[$z]);
+                        if($comparartausuario === 0){
+                            $contadorSeccionesQueLeFaltaronTextoUsuarioDos++;
+                        }
+                    }
+
+                    if(($contadorSeccionesQueLeFaltaronTextoUsuarioUno > $contadorSeccionesQueLeFaltaronTextoUsuarioDos)){
+                        if (!in_array($arraySeccionesTextoCorrecto[$u], $resultadoSeccionesQueLeFaltaronTextoUsuario)){
+                            array_push($resultadoSeccionesQueLeFaltaronTextoUsuario, $arraySeccionesTextoCorrecto[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronTextoUsuarioUno = 0;
+                    $contadorSeccionesQueLeFaltaronTextoUsuarioDos = 0;
                 }
+
+                /////////////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSSECCIONESQUELEFALTARONTEXTOUSUARIO FINAL
 
 
                 
@@ -5611,13 +6495,67 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESTEXTOUSUARIO Y SE PREGUNTA SI LA SECCION[I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DEL TEXTO CORRECTO
                 //Y LAS SECCIONES DEL ARRAYSECCIONESTEXTOUSUARIO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESTEXTOCORRECTO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSSECCIONESTEXTOUSUARIOINCORRECTAS PARA ENVIARLAS A LA VISTA
-                for($p=0; $p<$nroElementosArraySeccionesTextoUsuario; $p++){
-                    if(!in_array($arraySeccionesTextoUsuario[$p], $arraySeccionesTextoCorrecto)){
-                        array_push($resultadoSeccionesTextoUsuarioIncorrectas, $arraySeccionesTextoUsuario[$p]);
+
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESTEXTOUSUARIOINCORRECTAS
+                //for($p=0; $p<$nroElementosArraySeccionesTextoUsuario; $p++){
+                //    if(!in_array($arraySeccionesTextoUsuario[$p], $arraySeccionesTextoCorrecto)){
+                //        array_push($resultadoSeccionesTextoUsuarioIncorrectas, $arraySeccionesTextoUsuario[$p]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesTextoUsuarioIncorrectas;
+
+
+                 ////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESTEXTOUSUARIOINCORRECTAS
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                for($b=0; $b<$nroElementosArraySeccionesTextoUsuario; $b++){
+                    if(!in_array($arraySeccionesTextoUsuario[$b], $arraySeccionesTextoCorrecto)){
+                        array_push($resultadoSeccionesTextoUsuarioIncorrectas, $arraySeccionesTextoUsuario[$b]);
                     }
                 }
 
+                
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesTextoUsuarioIncorrectasUno = 0;
+                $contadorResultadoSeccionesTextoUsuarioIncorrectasDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesTextoCorrecto; $u++){
+
+                    for ($y=0; $y<$nroElementosArraySeccionesTextoCorrecto; $y++){
+                        $compararta = strcmp($arraySeccionesTextoCorrecto[$u], $arraySeccionesTextoCorrecto[$y]);
+                        if ($compararta === 0){
+                            $contadorResultadoSeccionesTextoUsuarioIncorrectasUno++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesTextoUsuario); $z++){
+                        $comparartausuario = strcmp($arraySeccionesTextoCorrecto[$u], $arraySeccionesTextoUsuario[$z]);
+                        if($comparartausuario === 0){
+                            $contadorResultadoSeccionesTextoUsuarioIncorrectasDos++;
+                        }
+
+                    }
+
+                    if(($contadorResultadoSeccionesTextoUsuarioIncorrectasUno < $contadorResultadoSeccionesTextoUsuarioIncorrectasDos)){
+                        if (!in_array($arraySeccionesTextoCorrecto[$u], $resultadoSeccionesTextoUsuarioIncorrectas)){
+                            array_push($resultadoSeccionesTextoUsuarioIncorrectas, $arraySeccionesTextoCorrecto[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesTextoUsuarioIncorrectasUno = 0;
+                    $contadorResultadoSeccionesTextoUsuarioIncorrectasDos = 0;
+
+                }
+
                 //return $resultadoSeccionesTextoUsuarioIncorrectas;
+
+                ////////////////////////////////////FIN METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESTEXTOUSUARIOINCORRECTAS
+
+
 
 
                 //ACTUALIZACION 
@@ -6033,11 +6971,61 @@ class AllResultsController extends Controller
                     }
                 }
 
-                for($d=0; $d<$nroElementosArraySeccionesParrafoCorrecto; $d++){
-                    if(!in_array($arraySeccionesParrafoCorrecto[$d], $arraySeccionesParrafoUsuario)){
-                        array_push($resultadoSeccionesQueLeFaltaronParrafoUsuario, $arraySeccionesParrafoCorrecto[$d]);
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONPARRAFOUSUARIO ORIGINAL
+                //for($d=0; $d<$nroElementosArraySeccionesParrafoCorrecto; $d++){
+                //    if(!in_array($arraySeccionesParrafoCorrecto[$d], $arraySeccionesParrafoUsuario)){
+                //        array_push($resultadoSeccionesQueLeFaltaronParrafoUsuario, $arraySeccionesParrafoCorrecto[$d]);
+                //    }
+                //}
+
+                ///////////////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESQUELEFALTARONPARRAFOUSUARIO FINAL
+
+                $arraysiu = [];
+                $contadorSeccionesQueLeFaltaronParrafoUsuarioUno = 0;
+                $contadorSeccionesQueLeFaltaronParrafoUsuarioDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesParrafoCorrecto; $u++){
+
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u]));
+
+                    for ($y=0; $y<$nroElementosArraySeccionesParrafoCorrecto; $y++){
+                        $compararti = strcmp($arraySeccionesParrafoCorrecto[$u], $arraySeccionesParrafoCorrecto[$y]);
+                        if ($compararti === 0){
+                            $contadorSeccionesQueLeFaltaronParrafoUsuarioUno++;
+                        }
                     }
+
+                    for ($z=0; $z<count($arraySeccionesParrafoUsuario); $z++){
+                        $comparartiusuario = strcmp($arraySeccionesParrafoCorrecto[$u], $arraySeccionesParrafoUsuario[$z]);
+                        if($comparartiusuario === 0){
+                            $contadorSeccionesQueLeFaltaronParrafoUsuarioDos++;
+                        }
+                    }
+
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u] . " y se repite " . $contadoruno . " veces en el texto correcto."));
+                
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u] . " y se repite " . $contadordos . " veces en el texto del usuario."));
+                
+                    //if(($contadoruno < $contadordos) || ($contadoruno > $contadordos)){
+                    if(($contadorSeccionesQueLeFaltaronParrafoUsuarioUno > $contadorSeccionesQueLeFaltaronParrafoUsuarioDos)){
+                        if (!in_array($arraySeccionesParrafoCorrecto[$u], $resultadoSeccionesQueLeFaltaronParrafoUsuario)){
+                            array_push($resultadoSeccionesQueLeFaltaronParrafoUsuario, $arraySeccionesParrafoCorrecto[$u]);
+                        }
+                        
+                    }
+                    $contadorSeccionesQueLeFaltaronParrafoUsuarioUno = 0;
+                    $contadorSeccionesQueLeFaltaronParrafoUsuarioDos = 0;
+
                 }
+                //return $resultadoSeccionesQueLeFaltaronParrafoUsuario;
+
+                //return $arraysiu;
+
+
+
+
+
+                /////////////////////////////////////////////FIN CODIGO AGREGAR ELEMENTOS AL ARRAY RESULTADOSSECCIONESQUELEFALTARONPARRAFOUSUARIO FINAL
+                //return $resultadoSeccionesQueLeFaltaronParrafoUsuario;
 
 
                 //ACTUALIZACION
@@ -6046,13 +7034,68 @@ class AllResultsController extends Controller
                 //PARA LA COMPARACION, CON UN FOR SE RECORRE EL ARRAYSECCIONESPARRAFOUSUARIO Y SE PREGUNTA SI LA SECCION [I] DE ESE ARRAY NO COINCIDE CON ALGUNA DE LAS SECCIONES DEL TEXTO CORRECTO
                 //Y LAS SECCIONES DEL ARRAY SECCIONES TEXTO USUARIO QUE NO COINCIDAN CON ALGUNA SECCION DEL ARRAYSECCIONESPARRAFOCORRECTO, SE GUARDAN EN EL ARRAY
                 //RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS PARA ENVIARLAS A LA VISTA
+
+                //METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
+                //for($b=0; $b<$nroElementosArraySeccionesParrafoUsuario; $b++){
+                //    if(!in_array($arraySeccionesParrafoUsuario[$b], $arraySeccionesParrafoCorrecto)){
+                //        array_push($resultadoSeccionesParrafoUsuarioIncorrectas, $arraySeccionesParrafoUsuario[$b]);
+                //    }
+                //}
+
+                //return $resultadoSeccionesParrafoUsuarioIncorrectas;
+
+                 /////////////////////////////////METODO PARA AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS FINAL
+
+                //CAPTURAR LAS PALABRAS QUE NO TIENEN NADA QUE VER CON LA RESPUESTA CORRECTA Y AGREGARLAS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS
                 for($b=0; $b<$nroElementosArraySeccionesParrafoUsuario; $b++){
                     if(!in_array($arraySeccionesParrafoUsuario[$b], $arraySeccionesParrafoCorrecto)){
                         array_push($resultadoSeccionesParrafoUsuarioIncorrectas, $arraySeccionesParrafoUsuario[$b]);
                     }
                 }
 
-                //return $resultadoSeccionesParrafoUsuarioIncorrectas;
+                //AGREGAR AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS LAS PALABRAS QUE SI FORMAN PARTE DEL TEXTO CORRECTO, PERO QUE ESTAN AGREGADAS EN DEMASIA
+                //ES DECIR, EN EL TEXTO CORRECTO HAY 2 "HOLA" PERO EN LA RESPUESTA DEL USUARIO HAY 3 "HOLA", POR LO TANTO ES UNA PALABRA INCORRECTA.
+                //ESTE METODO ESTÁ BASADO EN EL METODO PARA AGREGAR ELEMENTOS AL ARRAY $resultadoSeccionesQueLeFaltaronParrafoUsuario
+                //LA DIFERENCIA ES QUE EN LA SECCION FINAL DE ESTE METODO SE CAMBIO EL METODO DE MAYOR QUE A MENOR QUE  
+
+                $contadorResultadoSeccionesParrafoUsuarioIncorrectasUno = 0;
+                $contadorResultadoSeccionesParrafoUsuarioIncorrectasDos = 0;
+                for($u=0; $u<$nroElementosArraySeccionesParrafoCorrecto; $u++){
+
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u]));
+
+                    for ($y=0; $y<$nroElementosArraySeccionesParrafoCorrecto; $y++){
+                        $compararti = strcmp($arraySeccionesParrafoCorrecto[$u], $arraySeccionesParrafoCorrecto[$y]);
+                        if ($compararti === 0){
+                            $contadorResultadoSeccionesParrafoUsuarioIncorrectasUno++;
+                        }
+                    }
+
+                    for ($z=0; $z<count($arraySeccionesParrafoUsuario); $z++){
+                        $comparartiusuario = strcmp($arraySeccionesParrafoCorrecto[$u], $arraySeccionesParrafoUsuario[$z]);
+                        if($comparartiusuario === 0){
+                            $contadorResultadoSeccionesParrafoUsuarioIncorrectasDos++;
+                        }
+                    }
+
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u] . " y se repite " . $contadoruno . " veces en el texto correcto."));
+                
+                    //array_push($arraysiu, ("La palabra " . $u . " es: " . $arraySeccionesParrafoCorrecto[$u] . " y se repite " . $contadordos . " veces en el texto del usuario."));
+                
+                    if(($contadorResultadoSeccionesParrafoUsuarioIncorrectasUno < $contadorResultadoSeccionesParrafoUsuarioIncorrectasDos)){
+                        if (!in_array($arraySeccionesParrafoCorrecto[$u], $resultadoSeccionesParrafoUsuarioIncorrectas)){
+                            array_push($resultadoSeccionesParrafoUsuarioIncorrectas, $arraySeccionesParrafoCorrecto[$u]);
+                        }
+                        
+                    }
+                    $contadorResultadoSeccionesParrafoUsuarioIncorrectasUno = 0;
+                    $contadorResultadoSeccionesParrafoUsuarioIncorrectasDos = 0;
+
+                }
+
+
+                /////////////////////////////////////FIN CODIGO AGREGAR ELEMENTOS AL ARRAY RESULTADOSECCIONESPARRAFOUSUARIOINCORRECTAS FINAL
+
 
 
                 //ACTUALIZACION
