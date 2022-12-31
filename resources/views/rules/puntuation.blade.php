@@ -56,14 +56,7 @@
                 <p class="text-sm text-justify md:text-xl font-sora">
                     <strong class="text-red-500">Signos dobles: </strong> paréntesis, corchetes, comillas, raya, signos de interrogación y exclamación.
                 </p>
-                <br>
-                <p class="text-sm text-justify md:text-xl font-sora">
-                    Los signos de puntuación se dividen en dos categorías: <strong class="text-red-500">signos simples y dobles.</strong>
-                </p>
-                <br>
-                <p class="text-sm text-justify md:text-xl font-sora">
-                    <strong class="text-red-500">Signos simples: </strong> punto, coma, punto y coma, dos puntos, puntos suspensivos. 
-                </p>
+            
                 <br>
                 <p class="text-sm text-justify md:text-xl font-sora">
                     Los signos simples deben escribirse unidos al elemento que los precede y separados por un espacio del elemento que está a continuación de ellos. Mientras que los signos dobles 
