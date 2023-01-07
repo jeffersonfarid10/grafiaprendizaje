@@ -89,7 +89,8 @@
                     <div class="container-fluid mx-auto p-5">
 
                         <!-- MOSTRAR LAS PALABRAS VISIBLES -->
-                        @foreach ($questionType->answers as $answer)
+                        {{--@foreach ($questionType->answers as $answer)--}}
+                        @foreach ($palabrasRandomAsignadas as $answer)
                             <h4 class="text-center m-4 border-bottom"><strong>{{$answer->visible_answer}}</strong></h4>
                         @endforeach
                     </div>
@@ -100,7 +101,8 @@
                     <div class="container-fluid mx-auto p-5">
 
                         <!-- MOSTRAR LAS PALABRAS CORRECTAS -->
-                        @foreach ($questionType->answers as $answer)
+                        {{--@foreach ($questionType->answers as $answer)--}}
+                        @foreach ($palabrasRandomAsignadas as $answer)
                             <h4 class="text-center m-4 border-bottom"><strong>{{$answer->answer}}</strong></h4>
                         @endforeach
                         

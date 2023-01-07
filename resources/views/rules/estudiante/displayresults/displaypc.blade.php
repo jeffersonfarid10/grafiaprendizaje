@@ -92,7 +92,7 @@
                                 <h4 class="font-semibold text-gray-800 font-sora text-center text-2xl m-2">{{$answer->visible_answer}}</h4>
                             @endforeach
                         </div>
-                    </div>
+                    </div> 
                     <!-- RESPUESTA CORRECTA -->
                     <div class="grid grid-cols-1">
                         <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Palabras correctas:</h5>
@@ -170,7 +170,7 @@
                 @if (count($resultadoLetrasMalColocadasUno) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Elementos incorrectos de tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras/elementos incorrectos o mal colocados de tu respuesta:</h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -188,7 +188,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraUno))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta en el lugar correcto:</h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -253,7 +253,7 @@
                 @if (count($resultadoLetrasMalColocadasDos) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Elementos incorrectos de tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras/elementos incorrectos o mal colocados de tu respuesta:</h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -271,7 +271,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraDos))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta en el lugar correcto:</h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -338,7 +338,7 @@
                 @if (count($resultadoLetrasMalColocadasTres) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Elementos incorrectos de tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras/elementos incorrectos o mal colocados de tu respuesta:</h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -356,7 +356,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraTres))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta en el lugar correcto:</h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -422,7 +422,7 @@
                 @if (count($resultadoLetrasMalColocadasCuatro) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Elementos incorrectos de tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras/elementos incorrectos o mal colocados de tu respuesta:</h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -440,7 +440,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraCuatro))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta en el lugar correcto:</h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -506,7 +506,7 @@
                 @if (count($resultadoLetrasMalColocadasCinco) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Elementos incorrectos de tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras/elementos incorrectos o mal colocados de tu respuesta:</h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>
@@ -524,7 +524,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraCinco))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="grid grid-cols-1 border-2">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Letras que no se encontraron en tu respuesta en el lugar correcto:</h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="font-semibold text-red-500 font-sora text-center text-xl md:text-2xl ml-4"> | </span>

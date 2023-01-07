@@ -149,7 +149,7 @@ class AllResultsController extends Controller
             //YA TENIENDO EL ID DE LA RESPUESTA CORRECTA, SE CAPTURA EL REGISTRO COMPLETO DE ANSWER
             $answerCorrecta = Answer::find($idAnswerCorrecta);
 
-
+ 
 
             //ACTUALIZACION
             //PARA MOSTRAR LAS REGLAS ORTOGRAFICAS ASOCIADAS A LA PREGUNTA CLASIFICADAS POR PALABRAS, PUNTUACION Y ACENTUACION
@@ -279,7 +279,17 @@ class AllResultsController extends Controller
             $sumaresultados = array_sum($resultados);
 
             //COMO ES PALABRA CORRECION SON 5 RESPUESTAS DE LA TABLA ANSWERS ENTONCES SE CAPTURA PRIMERO LA COLECCION DE RESPUESTAS
-            $resCorrecta = Answer::where('question_id', $questionId)->where('is_correct', true)->pluck('id')->toArray();
+            //$resCorrecta = Answer::where('question_id', $questionId)->where('is_correct', true)->pluck('id')->toArray();
+
+            
+            //ACTUALIZACION, COMO AHORA SON UN BANCO DE 15 PALABRAS, SE DEBE CAPTURAR LAS 5 PALABRAS RANDOM QUE SE LE ASIGNARON AL USUARIO ACTUAL
+            //ENTONCES EN LA VARIABLE $IDSANSWERSUSER SE GUARDAN LOS IDS DE CADA ANSWER A LA QUE EL USUARIO RESPONDIO
+            $idsAnswersUser = Result::where('evaluation_id', $evaluationId)->where('question_id', $questionId)->where('user_id', $userId)->pluck('answer_id')->toArray();
+            //EN LA VARIABLE $RESCORRECTA SE CAPTURAN LOS REGISTROS DE LA TABLA ANSWER QUE SON LAS PALABRAS CORRECTAS QUE EL USUARIO DEBIA CORREJIR
+            $resCorrecta = Answer::where('question_id', $questionId)->where('is_correct', true)->whereIn('id', $idsAnswersUser)->pluck('id')->toArray();
+
+
+
             //CON LOS IDS DE LAS ANSWERS CORRECTAS SE BUSCA UNA A UNA LA RESPUESTA EN LA TABLA ANSWERS PARA TENERLOS LISTOS COMO STRINGS
             //SE ACCEDE ASI A LA ANSWER TIPO STRING: $rescorrectauno->answer;
             $rescorrectauno = Answer::find($resCorrecta[0]);
@@ -294,20 +304,26 @@ class AllResultsController extends Controller
             //CAPTURAR LAS PALABRAS ACERTADAS Y LAS PALABRAS INCORRECTAS
             $answers = Answer::where('question_id', $questionId)->where('is_correct', true)->pluck('answer')->toArray();
             $responses = Result::where('evaluation_id', $evaluationId)->where('question_id', $questionId)->where('user_id', $userId)->pluck('answer_user')->toArray();
-            $palabrasAcertadas = [];
-            $palabrasIncorrectas = [];
+            //$palabrasAcertadas = [];
+            //$palabrasIncorrectas = [];
             $answersU_count = count($responses);
             //RECORRER CON UN FOR EL ARRAY DE RESPUESTAS CORRECTAS Y EL ARRAY DE RESPUESTAS DEL USUARIO Y LAS QUE COINCIDAN SE GUARDAN EN EL ARRAY 
             //DE PALABRAS ACERTADAS Y LAS QUE NO COINCIDAN EN EL ARRAY DE PALABRASINCORRECTAS
-            for($i=0; $i<$answersU_count; $i++){
-                $comparacion = strcmp($answers[$i], $responses[$i]);
-                if($comparacion == 0){
-                    array_push($palabrasAcertadas, $responses[$i]);
-                }
-                else{
-                    array_push($palabrasIncorrectas, $responses[$i]);
-                }
-            }
+            //for($i=0; $i<$answersU_count; $i++){
+            //    $comparacion = strcmp($answers[$i], $responses[$i]);
+            //    if($comparacion == 0){
+            //        array_push($palabrasAcertadas, $responses[$i]);
+            //    }
+            //    else{
+            //        array_push($palabrasIncorrectas, $responses[$i]);
+            //    }
+            //}
+
+            //ACTUALIZACION CAPTURAR EN EL ARRAY $PALABRASACERTADAS LAS PALABRAS CORRECTAS DEL USUARIO Y EN EL ARRAY $PALABRASINCORRECTAS LAS PALABRAS INCORRECTAS
+            $palabrasAcertadas = Result::where('evaluation_id', $evaluationId)->where('question_id', $questionId)->where('user_id', $userId)->where('score', 0.20)->pluck('answer_user')->toArray();
+            $palabrasIncorrectas = Result::where('evaluation_id', $evaluationId)->where('question_id', $questionId)->where('user_id', $userId)->where('score', 0.00)->pluck('answer_user')->toArray();
+    
+            //return $palabrasIncorrectas;
 
             ////////////////////////////////////////////////////NUEVO CODIGO
 
@@ -1971,7 +1987,8 @@ class AllResultsController extends Controller
             }
 
 
-
+            //ACTUALIZACION, SE ENVIA LA COLECCION $PALABRASRANDOMASIGNADAS A LA VISTA, ESTA VARIABLE CONTIENE LAS PALABRAS ALEATORIAS QUE DEBIA RESPONDER EL USUARIO
+            $palabrasRandomAsignadas = Answer::where('question_id', $questionId)->where('is_correct', true)->whereIn('id', $idsAnswersUser)->get();
 
 
 
@@ -2003,7 +2020,8 @@ class AllResultsController extends Controller
                     , 'resultadoPalabraLetrasIncorrectasCinco', 'palabraUsuarioCinco', 'palabraCorrectaCinco', 'respuestaCasoCinco', 'resultadoSeccionesQueLeFaltaronALaPalabraCinco'
                     , 'haypalabrasencategories', 'hayacentuacionencategories', 'haypuntuacionencategories', 'haypalabrasensections', 'hayacentuacionensections', 'haypuntuacionensections'
                     , 'haypalabrasenposts', 'hayacentuacionenposts', 'haypuntuacionenposts', 'haypalabrasenrules', 'hayacentuacionenrules', 'haypuntuacionenrules'
-                    , 'haypalabrasennotes', 'hayacentuacionennotes', 'haypuntuacionennotes'));
+                    , 'haypalabrasennotes', 'hayacentuacionennotes', 'haypuntuacionennotes'
+                    , 'palabrasRandomAsignadas'));
 
 
 

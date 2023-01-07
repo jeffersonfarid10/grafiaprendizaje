@@ -3066,7 +3066,7 @@ class EvaluacionController extends Controller
                     , 'haypalabrasencategories', 'hayacentuacionencategories', 'haypuntuacionencategories', 'haypalabrasensections', 'hayacentuacionensections', 'haypuntuacionensections'
                     , 'haypalabrasenposts', 'hayacentuacionenposts', 'haypuntuacionenposts', 'haypalabrasenrules', 'hayacentuacionenrules', 'haypuntuacionenrules'
                     , 'haypalabrasennotes', 'hayacentuacionennotes', 'haypuntuacionennotes'
-                    , 'palabrasRandomAsignadas'));
+                    , 'palabrasRandomAsignadas')); 
 
             /////////////////////////////////////////////////////FIN NUEVO CODIGO 
             
