@@ -16,10 +16,32 @@
                 </div>
             @endif
 
+
+            <!-- EN LA COLECCION EVALUATIONS VIENE LA EVALUACION FINAL POR ESO HAY QUE RECORRER ESA COLECCION -->
+            <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $ISEVALUATIONASSIGNED ES VERDADERA, ES DECIR, SI EL USUARIO TIENE EXAMENES ASIGNADOS  -->
+            @if ($isEvaluationAssigned)
+                <!-- CONTENEDOR CON LA TARJETA DE LA ENCUESTA-->
+                <div class="container mx-auto p-10">
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Encuesta</h3>
+                    <p class="text-xl font-sora m-5">Por favor, ingrese al siguiente link y responda a la siguiente encuesta.</p>
+                    <!-- CONTENEDOR CON 1 CARD PARA MOSTRAR LA EVALUACION DE DIAGNOSTICO -->
+                    <div class="container mx-auto py-16 bg-amber-300 rounded-xl w-full">
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Link encuesta: 
+                            <a class="text-red-600" href="https://forms.office.com/r/ABpyJwwDsD" target="_blank" rel="noopener noreferrer">
+                                https://forms.office.com/r/ABpyJwwDsD
+                            </a>
+                        </h3>
+                    </div>
+
+                </div>
+            @endif 
+
+
+
             <!-- CONTENEDOR CON LA TARJETA DE LA EVALUACION ASIGNADA -->
             <div class="container mx-auto p-10">
                 <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Evaluación final</h3>
-                <p class="text-xl font-sora m-5">En la evaluación final responderás a varias preguntas relacionadas con las actividades que has realizado ¡suerte!</p>
+                <p class="text-xl font-sora m-5">En la evaluación final responderás a varias preguntas relacionadas con las actividades que has realizado. ¡Suerte!</p>
                 
                      <!-- EN LA COLECCION EVALUATIONS VIENE LA EVALUACION FINAL POR ESO HAY QUE RECORRER ESA COLECCION -->
                      <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $ISEVALUATIONASSIGNED ES VERDADERA, ES DECIR, SI EL USUARIO TIENE EXAMENES ASIGNADOS  -->

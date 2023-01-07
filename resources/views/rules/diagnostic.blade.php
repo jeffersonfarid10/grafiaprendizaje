@@ -15,6 +15,26 @@
                 </div>
             @endif
 
+            <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $ISEVALUATIONASSIGNED ES VERDADERA, ES DECIR SI EL USUARIO TIENE EXAMENES ASIGNADOS -->
+            @if ($isEvaluationAssigned)
+
+
+                    <!-- CONTENEDOR CON LA EVALUACION EN GOOGLE FORMS -->
+                    <div class="container mx-auto p-10">
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Antes de continuar</h3>
+                        <p class="text-xl font-sora m-5">Por favor, antes de resolver la evaluación de diagnóstico, ingresa al link y responde al siguiente cuestionario.</p>
+                        <div class="container mx-auto py-16 bg-amber-200 rounded-xl w-full">
+                            <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-600 font-anton text-center">Cuestionario: 
+                                <a class="text-red-600" href="https://forms.office.com/r/ZcH3X6dkUR" target="_blank" rel="noopener noreferrer">
+                                    https://forms.office.com/r/ZcH3X6dkUR
+                                </a>
+                            </h3>
+                            
+                        </div>
+                    </div>
+
+            @endif 
+
 
             <!-- CONTENEDOR CON LA TARJETA DE LA EVALUACION ASIGNADA -->
             <div class="container mx-auto p-10">
