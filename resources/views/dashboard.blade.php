@@ -101,7 +101,7 @@
                     <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8 m-10 transform  hover:scale-125 transition duration-300">
                         <div class="mb-12 space-y-4">
                             <h3 class="text-2xl font-semibold text-rose-500 font-anton">Actividades de práctica</pre></h3>
-                            <p class="mb-6 text-justify">Al hacer click en el botón ingresar, tendrás a tu disposición varias actividades de práctica para mejorar tus conocimientos sobre ortografía. ¡Vamos a por ello!</p>
+                            <p class="mb-6 text-justify">Al hacer click en el botón ingresar, tendrás a tu disposición varias actividades de práctica para mejorar tus conocimientos sobre ortografía. ¡Vamos por ello!</p>
                             <a href="{{route('estudiante.practica')}}">
                                 <!-- BOTON DE INGRESO -->
                                 <button type="button" class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
@@ -114,7 +114,7 @@
                     <div class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8 m-10 transform  hover:scale-125 transition duration-300">
                         <div class="mb-12 space-y-4">
                             <h3 class="text-2xl font-semibold text-purple-700 font-anton">Evaluación final</h3>
-                            <p class="mb-6 text-justify">Una vez que hayas culminado con la evaluación de diágnostico y las activades de práctica, estás listo para realizar la evaluación final de la aplicación web. ¡Empecemos!</p>
+                            <p class="mb-6 text-justify">Una vez que hayas culminado con la evaluación de diágnostico y las actividades de práctica, estás listo para realizar la evaluación final de la aplicación web. ¡Empecemos!</p>
                             <a href="{{route('estudiante.final')}}">
                                 <!-- BOTON DE INGRESO -->
                                 <button type="button" class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
