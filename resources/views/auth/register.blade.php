@@ -3,7 +3,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="col-span-1">
             
-            <img src="{{asset('/imagenesapp/portadalogin.jpg')}}" class="object-cover object-center shadow-2xl w-0 h-0 lg:w-full lg:h-full">
+            {{--<img src="{{asset('/imagenesapp/portadalogin.jpg')}}" class="object-cover object-center shadow-2xl w-0 h-0 lg:w-full lg:h-full">--}}
+            <img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">
         </div>
         <div class="col-span-1">
             <x-jet-authentication-card>
