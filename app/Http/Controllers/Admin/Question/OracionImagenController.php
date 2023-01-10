@@ -48,7 +48,7 @@ class OracionImagenController extends Controller
         //ACTUALIZACION CONSULTA CON PAGINACION
         $questions = Question::orderBy('id', 'DESC')->where('type', "OI")->with('evaluation')->paginate(10);
 
-        return view('admin.question.oracionimagen.index', compact('questions'));
+        return view('admin.question.oracionimagen.index', compact('questions')); 
     }
 
     /**
@@ -383,7 +383,7 @@ class OracionImagenController extends Controller
                 'evaluation_id' => $request->evaluation_id,
                 'type' => "OI",
                 //ACTUALIZACION SE ACTUALIZA EL NUEVO CAMPO RULE
-                //'rule' => $request->rule,
+                'rule' => $request->rule,
             ]);
         }
         else{
@@ -396,7 +396,7 @@ class OracionImagenController extends Controller
                 'evaluation_id' => $request->evaluation_id,
                 'type' => "OI",
                 //ACTUALIZACION SE ACTUALIZA EL NUEVO CAMPO RULE
-                //'rule' => $request->rule,
+                'rule' => $request->rule,
             ]);
         }
 

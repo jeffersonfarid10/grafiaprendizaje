@@ -394,7 +394,7 @@
 
 <!-- CLASES DE CSS CREADAS PARA LA SECCION DE SUBIR IMAGEN: IMAGE-WRAPPER, IMAGE-WRAPPER IMG-->
 @section('css')
-    <style>
+    {{--<style>
         .image-wrapper{
             position: relative;
             padding-bottom: 56.25%;
@@ -406,7 +406,7 @@
             width: 100%;
             height: 100%;
         }
-    </style>
+    </style>--}}
 @stop
 
 <!-- LLAMAR AL PLUGIN STRING TO SLUG Y PLUGIN PARA CARGAR LA IMAGEN QUE SE ESTA SUBIENDO -->
@@ -427,18 +427,18 @@
         });
 
         //CAMBIAR IMAGEN QUE SE MUESTRA POR DEFECTO, POR LA IMAGEN QUE VA A SUBIR EL USUARIO EN LA PREVISUALIZACION
-        document.getElementById("image").addEventListener('change', cambiarImagen);
-
-        function cambiarImagen(event){
-            var file = event.target.files[0];
-
-            var reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("picture").setAttribute('src', event.target.result);
-            };
-
-            reader.readAsDataURL(file);
-        }
+        //document.getElementById("image").addEventListener('change', cambiarImagen);
+        //
+        //function cambiarImagen(event){
+        //    var file = event.target.files[0];
+        //
+        //    var reader = new FileReader();
+        //    reader.onload = (event) => {
+        //        document.getElementById("picture").setAttribute('src', event.target.result);
+        //    };
+        //
+        //    reader.readAsDataURL(file);
+        //}
 
 
         //REEMPLAZAR TEXTARE DEL BODY CON CKEDITOR

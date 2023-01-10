@@ -28,7 +28,7 @@
 
             <div class="form-group">
                 <label>Enunciado de pregunta:</label>
-                <input type="text" name="title" id="title" placeholder="Ingrese el enunciado de pregunta" value="{{old('title')}}" class="form-control" required>
+                <input type="text" name="title" id="title" placeholder="Ingrese el enunciado de pregunta" value="{{old('title')}}" class="form-control" required> 
 
                 <!-- MENSAJE DE ERROR DE VALIDACION -->
                 @error('title')

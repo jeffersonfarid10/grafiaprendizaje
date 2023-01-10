@@ -46,7 +46,7 @@ class TextoImagenController extends Controller
         //$questions = Question::orderBy('id', $this->order)->where('type', "TI")->with('evaluation')->paginate($this->limit);
 
         //ACTUALIZACION CONSULTA CON PAGINACION
-        $questions = Question::orderBy('id', 'DESC')->where('type', "TI")->with('evaluation')->paginate(10);
+        $questions = Question::orderBy('id', 'DESC')->where('type', "TI")->with('evaluation')->paginate(10); 
 
         return view('admin.question.textoimagen.index', compact('questions'));
     }
