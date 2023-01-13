@@ -52,14 +52,14 @@
                     <div class="col">
                         <h5 class="text-red font-bold">Palabras correctas:</h5>
                         
-                        @foreach ($answers as $answer)
+                        @foreach ($answers as $key=>$answer)
                             <h6 class="card-text">{{$key+1}}. {{$answer->answer}}</h6>
                         @endforeach
                     </div>
                     <div class="col">
                         <h5 class="text-red font-bold">Palabras visibles:</h5>
                         
-                        @foreach ($answers as $visible)
+                        @foreach ($answers as $key=>$visible)
                             <h6 class="card-text">{{$key+1}}. {{$visible->visible_answer}}</h6>
                         @endforeach
                     </div>

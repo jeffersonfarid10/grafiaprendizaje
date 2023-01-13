@@ -73,7 +73,7 @@
         <!-- SACADO DE https://tailblocks.cc 3 COMPONENTE DEL TIPO BLOG -->
         <div class="container mx-auto p-10">
             <p class="text-xl font-sora m-5 text-justify">El uso de la tilde, según las funciones detalladas anteriormente, está regido por las siguientes reglas ortográficas que son de aplicación obligatoria. 
-                Puedes hacer click en la categoría de tu interés y, mientras más investigues, tendrás a tu disposición más reglas ortográficas y podrás aprender a como utilizar correctamente la tilde.
+                Puedes hacer click en la categoría de tu interés y, mientras más investigues, tendrás a tu disposición más reglas ortográficas y podrás aprender a cómo utilizar correctamente la tilde.
             </p>
             <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-blue-700 m-5 pt-7">Reglas ortográficas de acentuación disponibles:</h3>
             

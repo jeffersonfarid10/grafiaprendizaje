@@ -83,12 +83,12 @@
                 <li class="text-xl font-sora m-5 text-justify">Existen fonemas vocálicos y consonánticos</li>
 
             <p class="text-xl font-sora m-5 text-justify">Sin embargo, hay algunas curiosidades. Existen fonemas que pueden ser representados de forma escrita por letras diferentes o por dos letras.
-                Asimismo, existen letras como la "H" que no tienen un sonido característico o la "X" que en la mayoría de los casos, es la combinación del fonema o sonido /k/ con el sonido /s/.
-                Es por ello que, suelen generarse dudas para escribir correctamente las palabras que constituyen el lenguaje español, así como emplear correctamente las letras mayúsculas y minúsculas, o demás
+                Asimismo, existen letras como la "H" que no tienen un sonido característico, o la "X" que en la mayoría de los casos, es la combinación del fonema o sonido /k/ con el sonido /s/.
+                Por tal motivo, suelen generarse dudas para escribir correctamente las palabras que constituyen el lenguaje español, así como emplear correctamente las letras mayúsculas y minúsculas, o demás
                 tópicos que son igual de importantes para escribir correctamente. 
             </p>
-            <p class="text-xl font-sora m-5 text-justify">A continuación tienes a tu disposición los contenidos principales disponibles acerca de la correcta escritura de palabras, puedes hacer click en la categoría 
-                de tu interés y mientras más investigues, tendrás a tu disposición más reglas ortográficas y podrás aprender como escribir correctamente las palabras que componen el lenguaje español. 
+            <p class="text-xl font-sora m-5 text-justify">A continuación, tienes a tu disposición los contenidos principales disponibles acerca de la correcta escritura de palabras. Puedes hacer click en la categoría 
+                de tu interés y mientras más investigues, tendrás a tu disposición más reglas ortográficas y podrás aprender cómo escribir correctamente las palabras que componen el lenguaje español. 
             </p>
             
             <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-red-700 m-5 pt-7">Reglas ortográficas de palabras disponibles:</h3>

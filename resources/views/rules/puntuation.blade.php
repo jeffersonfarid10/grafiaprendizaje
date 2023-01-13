@@ -78,7 +78,7 @@
         <!-- SACADO DE https://tailblocks.cc 3 COMPONENTE DEL TIPO BLOG -->
         <div class="container mx-auto p-10">
             <p class="text-xl font-sora m-5 text-justify">Para cada signo simple o doble existen reglas para emplear correctamente dichos signos ortográficos. Al hacer click en cualquiera de las siguientes 
-                categorías puedes acceder a las reglas disponibles de cada signo de puntuación. Mientras más investigues, tendrás a tu disposición más reglas ortográficas y aprenderás a como colocar correctamente 
+                categorías, puedes acceder a las reglas disponibles de cada signo de puntuación. Mientras más investigues, tendrás a tu disposición más reglas ortográficas y aprenderás a cómo colocar correctamente 
                 los signos de puntuación. 
             </p>
             <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-green-700 m-5 pt-7">Reglas ortográficas de puntuación disponibles:</h3>
