@@ -4,7 +4,12 @@
         <div class="col-span-1">
             
             {{--<img src="{{asset('/imagenesapp/portadados.png')}}" class="object-cover object-center shadow-2xl w-0 h-0 lg:w-full lg:h-full">--}}
-            <img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">
+            {{--<img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">--}}
+            <a href="#" class="items-center border-double border-8 border-sky-500 rounded block lg:block p-4 bg-teal-400">
+                <div class="text-center">
+                    <span class="text-white pl-2 text-5xl">Grafi<strong class="text-white pr-2">Aprendizaje</strong></span>
+                </div>
+            </a>
         </div>
         <div class="col-span-1">
 
