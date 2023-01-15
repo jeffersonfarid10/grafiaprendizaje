@@ -242,7 +242,7 @@
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="grid grid-cols-1 border-2 p-4">
                             <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Comparación con la respuesta correcta:</h5>
-                            <p class="text-lg mt-4 ml-4 mb-5">Si tu respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
+                            <p class="text-lg mt-4 ml-4 mb-5">Si la respuesta correcta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta no contiene la palabra marcada.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
@@ -487,7 +487,7 @@
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="grid grid-cols-1 border-2 p-4">
                             <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Comparación con la respuesta correcta:</h5>
-                            <p class="text-lg mt-4 ml-4 mb-5">Si tu respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
+                            <p class="text-lg mt-4 ml-4 mb-5">Si la respuesta correcta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
                                 <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta no contiene la palabra marcada.</li>
                                 <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
                                 <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
@@ -732,7 +732,7 @@
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="grid grid-cols-1 border-2 p-4">
                             <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Comparación con la respuesta correcta:</h5>
-                            <p class="text-lg mt-4 ml-4 mb-5">Si tu respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
+                            <p class="text-lg mt-4 ml-4 mb-5">Si la respuesta correcta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta no contiene la palabra marcada.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
@@ -978,6 +978,7 @@
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="grid grid-cols-1 border-2 p-4">
                             <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Comparación con la respuesta correcta:</h5>
+                            <p class="text-lg mt-4 ml-4 mb-5">Si la respuesta correcta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta no contiene la palabra marcada.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
@@ -1223,7 +1224,7 @@
                         <!-- GRID QUE MUESTRA DE COLOR VERDE LOS ELEMENTOS DE LA RESPUESTA CORRECTA QUE NO SE ENCONTRARON EN LA ORACION DEL USUARIO -->
                         <div class="grid grid-cols-1 border-2 p-4">
                             <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Comparación con la respuesta correcta:</h5>
-                            <p class="text-lg mt-4 ml-4 mb-5">Si tu respuesta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
+                            <p class="text-lg mt-4 ml-4 mb-5">Si la respuesta correcta contiene elementos marcados de color verde, dichos elementos hacen falta en tu respuesta. Estos elementos no se han encontrado en tu respuesta por alguna de las siguientes razones:</p>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta no contiene la palabra marcada.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene la palabra marcada escrita de forma incorrecta.</li>
                             <li class="text-sm ml-4 mb-5 text-gray-800 font-semibold">Tu respuesta tiene signos de puntuación mal colocados en la sección de color verde.</li>
