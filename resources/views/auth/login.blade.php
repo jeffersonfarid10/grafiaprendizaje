@@ -27,12 +27,14 @@
                             <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Acentuación de palabras</li>
                             <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Uso de los signos de puntuación</li>
                     </p>
+
+                    <div class="bg-sky-600 my-4 rounded-3xl">
+                        <p class="text-lg md:text-lg font-sora p-8 font-bold text-center text-white">
+                            ¡Inicie sesión o regístrese y acceda a la aplicación web!
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-sky-600 my-4 rounded-3xl">
-                    <p class="text-lg md:text-lg font-sora p-8 font-bold text-center text-white">
-                        ¡Inicie sesión o regístrese y acceda a la aplicación web!
-                    </p>
-                </div>
+                
             </div>
         </div>
         <div class="col-span-1">
