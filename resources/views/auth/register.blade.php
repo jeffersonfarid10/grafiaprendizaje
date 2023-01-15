@@ -4,7 +4,39 @@
         <div class="col-span-1">
             
             {{--<img src="{{asset('/imagenesapp/portadalogin.jpg')}}" class="object-cover object-center shadow-2xl w-0 h-0 lg:w-full lg:h-full">--}}
-            <img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">
+            {{--<img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">--}}
+            <div class="grid-flow-col">
+                <a href="#" class="items-center border-double border-8 border-sky-500 rounded block lg:block p-4 bg-teal-400">
+                    <div class="text-center">
+                        <span class="text-white pl-2 text-5xl">Grafi<strong class="text-white pr-2">Aprendizaje</strong></span>
+                    </div>
+                </a>
+    
+                <div class="bg-slate-900 p-10 rounded-3xl my-5">
+                    
+                    <p class="text-lg text-justify md:text-xl text-white font-sora p-5">
+                        GrafiAprendizaje es una aplicación orientada a promover el uso de reglas ortográficas del idioma español.
+                        <br>
+                        <br>
+                        Al acceder a esta aplicación, tiene a su disposición información acerca del correcto empleo de las reglas ortográficas.
+                        <br>
+                        <br>
+                        Además, actividades para poner en práctica sus conocimientos sobre:
+                        <br>
+                            <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Escritura de palabras</li>
+                            <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Acentuación de palabras</li>
+                            <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Uso de los signos de puntuación</li>
+                    </p>
+
+                    <div class="bg-green-600 my-4 rounded-3xl">
+                        <p class="text-lg md:text-lg font-sora p-8 font-bold text-center text-white">
+                            ¡Inicie sesión o regístrese y acceda a la aplicación web!
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+
         </div>
         <div class="col-span-1">
             <x-jet-authentication-card>
