@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="col-span-1">
+        <div class="col-span-1 my-auto">
             
             {{--<img src="{{asset('/imagenesapp/portadados.png')}}" class="object-cover object-center shadow-2xl w-0 h-0 lg:w-full lg:h-full">--}}
             {{--<img src="{{asset('/imagenesapp/portadados.png')}}" class="object-fill object-center shadow-2xl w-0 h-0 lg:w-full lg:h-screen">--}}
@@ -10,6 +10,28 @@
                     <span class="text-white pl-2 text-5xl">Grafi<strong class="text-white pr-2">Aprendizaje</strong></span>
                 </div>
             </a>
+
+            <div class="bg-slate-900 p-10">
+                <p class="text-lg text-justify md:text-xl text-white font-sora p-10">
+                    GrafiAprendizaje es una aplicación orientada a promover el uso de reglas ortográficas del idioma español.
+                    <br>
+                    <br>
+                    Al acceder a esta aplicación, tiene a su disposición información acerca del correcto empleo de las reglas ortográficas.
+                    <br>
+                    <br>
+                    Además, actividades para poner en práctica sus conocimientos sobre:
+                    <br>
+                        <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Escritura de palabras</li>
+                        <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Acentuación de palabras</li>
+                        <li class="text-lg text-justify md:text-xl text-white font-sora pl-20">Uso de los signos de puntuación</li>
+                    
+                </p>
+            </div>
+            <div class="bg-cyan-500">
+                <p class="text-lg text-justify md:text-xl text-white font-sora p-10">
+
+                </p>
+            </div>
         </div>
         <div class="col-span-1">
 
