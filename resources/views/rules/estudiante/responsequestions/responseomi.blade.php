@@ -43,7 +43,7 @@
                     <div class="container mt-10 w-full mx-auto bg-amber-100 shadow-lg rounded-3xl border border-gray-200">
                         <div class="w-full mx-auto rounded-3xl">
                             <header class="px-5 py-4">
-                                <h2 class="font-semibold text-red-500 font-sora text-2xl text-center">Tome en cuenta las siguiente información para responder a la pregunta:</h2>
+                                <h2 class="font-semibold text-red-500 font-sora text-2xl text-center">Tome en cuenta la siguiente información para responder a la pregunta:</h2>
                             </header>
                             <!-- PARA MOSTRAR EL TEXTO DE CK EDITOR CON LOS ESTILOS SE CORRE EL SIGUIENTE COMANDO -->
                             {{-- npm install -D @tailwindcss/typography --}}

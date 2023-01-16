@@ -1396,7 +1396,7 @@
                                         <div class=" text-center font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Regla ortográfica</div>
                                     </th>--}}
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class=" text-center font-bold font-sora text-red-500 mt-4 ml-4 mb-5">Explicación a la respuesta:</div>
+                                        <div class=" text-center font-bold font-sora text-red-500 mt-4 ml-4 mb-5 text-xl">Explicación sobre la actividad:</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -1430,7 +1430,7 @@
                 <!-- ESTE DIV CONTIENE A LOS 3 TIPOS DE REGLAS ORTOGRAFICAS -->
                 <div class="grid grid-cols-1  divide-y md:divide-y-0 md:divide-x-0 divide-gray-800 rounded">
                     <div class="container bg-slate-300 border-y border-slate-200">
-                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5 text-center text-xl">Haz click en la regla ortográfica de tu interés a continuación para acceder a más información:</h5>
+                        <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5 text-center text-xl">Haz click en la regla ortográfica de tu interés para acceder a más información:</h5>
                     </div>
 
                     <!-- REGLAS ORTOGRAFICAS DE PALABRAS -->

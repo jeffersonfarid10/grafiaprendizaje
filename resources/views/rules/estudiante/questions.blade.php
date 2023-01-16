@@ -39,7 +39,7 @@
             <div class="container mx-auto bg-cyan-100 rounded-3xl p-5">
                 <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">{{$evaluation->name}}</h3>
                 <h4 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-red-700 m-5 p-5">Indicaciones generales:</h4>
-                <li class="text-xl font-sora m-5">A continuación, se presentan 10 actividades las cuales debes responder.</li>
+                <li class="text-xl font-sora m-5">A continuación, se presentan 10 actividades para completar.</li>
                 <li class="text-xl font-sora m-5">Puedes regresar a esta página las veces que desees, hasta que termines de realizar todas las actividades.</li>
                 <li class="text-xl font-sora m-5">Solo puedes responder una vez a cada actividad.</li>
             </div>
