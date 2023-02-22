@@ -3,7 +3,7 @@
 @section('title', 'Evaluaciones')
 
 @section('content_header')
-    <h1>Gestión de Evaluaciones</h1>
+    <h1 class="text-danger"><strong>Gestión de Evaluaciones</strong></h1>
 @stop
 
 @section('content')
