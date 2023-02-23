@@ -3,13 +3,13 @@
 @section('title', 'Editar evaluación')
 
 @section('content_header')
-    <h1>Editar evaluación</h1>
+    <h1 class="text-danger"><strong>Editar evaluación</strong></h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>Rellene los siguientes campos</h4>
+        <h5 class="text-danger"><strong> Rellene los siguientes campos:</strong></h5>
     </div>
     <!-- MENSAJE DE SESION -->
     @if (Session::has('message'))

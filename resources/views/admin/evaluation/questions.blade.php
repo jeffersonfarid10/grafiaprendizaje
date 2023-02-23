@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -37,7 +37,7 @@
                         </li>
                         <!-- RESPUESTAS -->
                         <li class="list-group-item">
-                            <strong>Respuestas:</strong>
+                            <strong class="text-danger">Respuestas:</strong>
                             <br>
                             @foreach ($pregunta->answers as $key=>$answer)
                                 <h6 class="card-text">{{$key+1}}. {{$answer->answer}}
@@ -49,18 +49,18 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    <h6 class="text-red"><strong>Justificaciones</strong></h6>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    <h6 class="text-red"><strong>Reglas</strong></h6>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
