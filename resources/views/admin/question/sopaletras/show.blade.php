@@ -3,7 +3,7 @@
 @section('title', 'Ver pregunta')
 
 @section('content_header')
-    <h1>Datos de la pregunta</h1>
+    <h1 class="text-danger"><strong>Datos de la pregunta</strong></h1>
 @stop
 
 @section('content')
@@ -13,23 +13,23 @@
 <br>
 <div class="card">
     <div class="card-header">
-        <strong>Título: </strong>
+        <strong class="text-danger">Título: </strong>
         <br><h1 class="card-title">{{$sopaletra->title}}</h1>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <strong>Evaluación a la que pertenece:</strong>
+                <strong class="text-danger">Evaluación a la que pertenece:</strong>
                 <br>
                 <h1 class="card-title">{{$sopaletra->evaluation->name}}</h1>
             </li>
             <li class="list-group-item">
-                <strong>Grupo al que pertenece:</strong>
+                <strong class="text-danger">Grupo al que pertenece:</strong>
                 <br>
                 <h1 class="card-title">{{$sopaletra->evaluation->format}}</h1>
             </li>
             <li class="list-group-item">
-                <strong>Indicaciones:</strong>
+                <strong class="text-danger">Indicaciones:</strong>
                 <br>
                 @foreach ($sopaletra->indications as $key=>$indicacion)
                     <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -39,32 +39,35 @@
             <!-- ACTUALIZACION, SI LA PREGUNTA TIENE EL CAMPO RULE QUE SE MUESTRE EL CONTENIDO -->
             @if ($sopaletra->rule)
                 <li class="list-group-item">
-                    <strong>Información de reglas ortográficas:</strong>
+                    <strong class="text-danger">Información de reglas ortográficas:</strong>
                     <br>
                     <p class="card-text">{!!$sopaletra->rule!!}</p>
                 </li>
             @endif
 
             <li class="list-group-item">
-                <strong>Respuestas:</strong>
+                <strong class="text-danger">Respuestas:</strong>
                 <br>
                 <div class="row m-3">
                     <div class="col">
-                        <h5 class="text-red font-bold">Palabras correctas:</h5>
+                        {{--<h5 class="text-red font-bold">Palabras correctas:</h5>--}}
+                        <strong class="text-danger">Palabras correctas:</strong>
                         
                         @foreach ($sopaletra->answers as $key=>$answer)
                             <h6 class="card-text">{{$key+1}}. {{$answer->answer}}</h6>
                         @endforeach
                     </div>
                     <div class="col">
-                        <h5 class="text-red font-bold">Palabras incorrectas:</h5>
+                        {{--<h5 class="text-red font-bold">Palabras incorrectas:</h5>--}}
+                        <strong class="text-danger">Palabras incorrectas:</strong>
                         
                         @foreach ($sopaletra->answers as $key=>$visible)
                             <h6 class="card-text">{{$key+1}}. {{$visible->visible_answer}}</h6>
                         @endforeach
                     </div>
                     <div class="col">
-                        <h5 class="text-red font-bold">Oraciones:</h5>
+                        {{--<h5 class="text-red font-bold">Oraciones:</h5>--}}
+                        <strong class="text-danger">Enunciados visibles:</strong>
                         
                         @foreach ($sopaletra->answers as $key=>$visible)
                             <h6 class="card-text">{{$key+1}}. {{$visible->second_answer}}</h6>
@@ -73,18 +76,20 @@
                 </div>
             </li>
             <li class="list-group-item">
-                <strong>Justificaciones:</strong>
+                <strong class="text-danger">Justificaciones:</strong>
                 <br>
                 <div class="row m-3">
                     <div class="col">
-                        <h5 class="text-red font-bold">Justificaciones:</h5>
+                        {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                        <strong class="text-danger">Justificaciones</strong>
                         
                         @foreach ($sopaletra->justifications as $key=>$justificacion)
                         <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                         @endforeach
                     </div>
                     <div class="col">
-                        <h5 class="text-red font-bold">Reglas</h5>
+                        {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                        <strong class="text-danger">Reglas</strong>
                         
                         @foreach ($sopaletra->justifications as $key=>$justificacion)
                             <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -99,8 +104,8 @@
 
     <!-- REGLAS ORTOGRAFICAS ASOCIADAS -->
     <div class="card-footer">
-        <strong>Reglas ortográficas asociadas:</strong>
-        <br>
+        <h5 class="text-center"><strong>Reglas ortográficas asociadas:</strong></h5>
+        
         <!-- REGLAS DE PALABRAS -->
         <div class="row">
             <!-- CON EL IF SE PREGUNTA SI LA PREGUNTA TIENE REGLAS DE NIVEL 1 YA SEA DE PALABRAS, ACENTUACION O PUNTUACION, SI ES ASI SE MUESTRAN -->

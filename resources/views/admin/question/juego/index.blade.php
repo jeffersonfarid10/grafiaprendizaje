@@ -3,7 +3,7 @@
 @section('title', 'Preguntas de juego ahorcado')
 
 @section('content_header')
-    <h1>Gestión de preguntas de juego ahorcado</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de juego ahorcado</strong></h1>
 @stop
 
 @section('content')

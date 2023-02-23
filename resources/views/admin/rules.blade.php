@@ -3,7 +3,7 @@
 @section('title', 'Reglas ortográficas')
 
 @section('content_header')
-    <h1 class="text-white bg-dark font-bold rounded pl-3">Gestión de reglas ortográficas</h1>
+    <h1 class="text-white bg-dark rounded py-3 text-center"><strong>Gestión de reglas ortográficas</strong></h1>
 @stop
 
 @section('content')
@@ -13,7 +13,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas nivel 1
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas nivel 1</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>
@@ -29,7 +30,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas nivel 2
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas nivel 2</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>
@@ -44,7 +46,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas nivel 3
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas nivel 3</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>
@@ -55,7 +58,7 @@
         </div>
     </div>
 
-
+{{--
     <div class="row">
         <div class="col">
             <div class="card m-5">
@@ -70,8 +73,8 @@
             </div>
         </div>
     </div>
-
-
+--}}
+{{--
     <div class="row">
         <div class="col">
             <div class="card m-5">
@@ -86,6 +89,7 @@
             </div>
         </div>
     </div>
+--}}
 </div>
 @stop
 

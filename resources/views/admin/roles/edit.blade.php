@@ -3,16 +3,16 @@
 @section('title', 'Editar usuario')
 
 @section('content_header')
-    <h1>Editar rol</h1>
+    <h1 class="text-danger"><strong>Editar rol</strong></h1>
 @stop
 
 @section('content')
 
 <div class="card">
     <div class="card-header">
-        <p class="h5">Nombre:</p>
+        <p class="h6 text-danger"><strong>Nombre:</strong></p>
         <br>
-        <p class="h5">{{$user->name}}</p>
+        <p class="h5"><strong>{{$user->name}}</strong></p>
     </div>
 
     <div class="card-body">
@@ -24,7 +24,7 @@
             
 
             <div class="form-group">
-                <label>Roles disponibles:</label>
+                <label class="text-danger"><strong>Roles disponibles:</strong></label>
                 <br>
                 
                 @foreach ($roles as $rol)

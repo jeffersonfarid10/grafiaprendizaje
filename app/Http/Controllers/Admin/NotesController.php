@@ -120,6 +120,8 @@ class NotesController extends Controller
 
             $arrayPrueba = [
                 'Estudiante' => $users[$i]->name,
+                //AGREGAR CAMPO CORREO ELECTRONICO
+                'Correo' => $users[$i]->email,
                 'Evaluacion' => $resultadoEvaluacion,
                 'Nota' => $notaFinalDiagnostico,
                 
@@ -224,6 +226,8 @@ class NotesController extends Controller
 
             $arrayPrueba = [
                 'Estudiante' => $users[$i]->name,
+                //AGREGAR CAMPO CORREO ELECTRONICO
+                'Correo' => $users[$i]->email,
                 'Evaluacion' => $resultadoEvaluacion,
                 'Nota' => $notaFinalPracticaUno,
                 
@@ -326,6 +330,8 @@ class NotesController extends Controller
 
             $arrayPrueba = [
                 'Estudiante' => $users[$i]->name,
+                //AGREGAR CAMPO CORREO ELECTRONICO
+                'Correo' => $users[$i]->email,
                 'Evaluacion' => $resultadoEvaluacion,
                 'Nota' => $notaFinalPracticaDos,
                 
@@ -425,6 +431,8 @@ class NotesController extends Controller
 
             $arrayPrueba = [
                 'Estudiante' => $users[$i]->name,
+                //AGREGAR CAMPO CORREO ELECTRONICO
+                'Correo' => $users[$i]->email,
                 'Evaluacion' => $resultadoEvaluacion,
                 'Nota' => $notaFinalPracticaTres,
                 
@@ -529,6 +537,8 @@ class NotesController extends Controller
 
             $arrayPrueba = [
                 'Estudiante' => $users[$i]->name,
+                //AGREGAR CAMPO CORREO ELECTRONICO
+                'Correo' => $users[$i]->email,
                 'Evaluacion' => $resultadoEvaluacion,
                 'Nota' => $notaFinalPracticaFinal,
                 

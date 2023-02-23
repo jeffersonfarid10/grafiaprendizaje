@@ -3,7 +3,7 @@
 @section('title', 'Preguntas opción múltiple con imágenes')
 
 @section('content_header')
-    <h1>Gestión de preguntas de opción múltiple con imágenes</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de opción múltiple con imágenes</strong></h1>
 @stop
 
 @section('content')

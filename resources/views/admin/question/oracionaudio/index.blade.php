@@ -3,7 +3,7 @@
 @section('title', 'Preguntas oraciones con audio')
 
 @section('content_header')
-    <h1>Gestión de preguntas de oraciones con audio</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de oraciones con audio</strong></h1>
 @stop
 
 @section('content')

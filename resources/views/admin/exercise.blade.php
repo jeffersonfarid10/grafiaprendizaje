@@ -3,7 +3,7 @@
 @section('title', 'Preguntas')
 
 @section('content_header')
-    <h1 class="text-white bg-dark font-bold rounded pl-3">Gestión de Preguntas</h1>
+    <h1 class="text-white bg-dark rounded py-3 text-center"><strong>Gestión de Actividades</strong></h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas opción multiple
+                    <h4 class="text-center"><strong>Actividades opción multiple</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -26,7 +26,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas opción multiple con imagen
+                    
+                    <h4 class="text-center"><strong>Actividades opción multiple con imagen</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -42,7 +43,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas opción multiple con audio
+                    
+                    <h4 class="text-center"><strong>Actividades opción multiple con audio</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -55,7 +57,7 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas oraciones con audio
+                    <h4 class="text-center"><strong>Actividades de oraciones con audio</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -71,7 +73,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas oraciones con imagen
+                    
+                    <h4 class="text-center"><strong>Actividades de oraciones con imagen</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -84,7 +87,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas corrección de palabras
+                    
+                    <h4 class="text-center"><strong>Actividades de corrección de palabras</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -100,7 +104,7 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas juego ahorcado
+                    <h4 class="text-center"><strong>Actividades de juego del ahorcado</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -113,7 +117,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas texto con imagen
+                    
+                    <h4 class="text-center"><strong>Actividades de texto con imagen</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -123,13 +128,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     
     <div class="row">
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-dark">
-                    Preguntas texto con audio
+                   
+                    <h4 class="text-center"><strong>Actividades de texto con audio</strong></h4>
                 </div>
                 <div class="card-body">
                     
@@ -143,7 +149,8 @@
             <div class="col">
                 <div class="card m-5">
                     <div class="card-header text-white bg-dark">
-                        Preguntas sopa de letras
+                        
+                        <h4 class="text-center"><strong>Actividades de sopa de letras</strong></h4>
                     </div>
                     <div class="card-body">
                         

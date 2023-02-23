@@ -3,7 +3,7 @@
 @section('title', 'Preguntas de texto con audio')
 
 @section('content_header')
-    <h1>Gestión de preguntas de texto con audio</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de texto con audio</strong></h1>
 @stop
 
 @section('content')

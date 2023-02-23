@@ -3,7 +3,7 @@
 @section('title', 'Roles')
 
 @section('content_header')
-    <h1>Gestión de roles de usuarios</h1>
+    <h1 class="text-danger"><strong>Gestión de roles de usuarios</strong></h1>
 @stop
 
 @section('content')

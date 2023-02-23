@@ -3,7 +3,7 @@
 @section('title', 'Preguntas oraciones con imagen')
 
 @section('content_header')
-    <h1>Gestión de preguntas de oraciones con imagen</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de oraciones con imagen</strong></h1>
 @stop
 
 @section('content')

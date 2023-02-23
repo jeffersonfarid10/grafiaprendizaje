@@ -3,7 +3,7 @@
 @section('title', 'Reglas nivel tres')
 
 @section('content_header')
-    <h1 class="text-white bg-dark font-bold pl-3">Gestión de reglas ortográficas nivel tres</h1>
+    <h1 class="text-white bg-dark py-3 text-center"><strong>Gestión de reglas ortográficas nivel tres</strong></h1>
 @stop
 
 @section('content')
@@ -14,7 +14,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas de palabras nivel 3
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas de palabras nivel 3</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>
@@ -30,7 +31,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas de acentuación nivel 3
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas de acentuación nivel 3</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>
@@ -45,7 +47,8 @@
         <div class="col">
             <div class="card m-5">
                 <div class="card-header text-white bg-gray-dark">
-                    Reglas ortográficas de puntuación nivel 3
+                    
+                    <h4 class="text-center"><strong>Reglas ortográficas de puntuación nivel 3</strong></h4>
                 </div>
                 <div class="card-body">
                     <br>

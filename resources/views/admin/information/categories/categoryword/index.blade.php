@@ -3,7 +3,7 @@
 @section('title', 'Reglas palabras nivel uno')
 
 @section('content_header')
-    <h1>Gestión de reglas ortográficas de palabras nivel uno</h1>
+    <h1 class="text-danger"><strong>Gestión de reglas ortográficas de palabras nivel uno</strong></h1>
 @stop
 
 @section('content')

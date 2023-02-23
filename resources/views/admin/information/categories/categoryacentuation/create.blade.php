@@ -3,7 +3,7 @@
 @section('title', 'Crear regla ortográfica')
 
 @section('content_header')
-    <h1>Crear regla ortográfica de acentuación nivel uno</h1>
+    <h1 class="text-danger"><strong>Crear regla ortográfica de acentuación nivel uno</strong></h1>
 @stop
 
 @section('content')
@@ -22,7 +22,8 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <h4>Rellene los siguientes campos:</h4>
+            {{--<h4>Rellene los siguientes campos:</h4>--}}
+            <h5 class="text-danger"><strong> Rellene los siguientes campos:</strong></h5>
         </div>
         
         <div class="card-body">

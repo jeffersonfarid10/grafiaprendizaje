@@ -3,13 +3,13 @@
 @section('title', 'Crear pregunta')
 
 @section('content_header')
-    <h1>Crear pregunta opción multiple</h1>
+    <h1 class="text-danger"><strong> Crear pregunta opción multiple</strong></h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>Rellene los siguientes campos:</h4>
+        <h5 class="text-danger"><strong> Rellene los siguientes campos:</strong></h5>
         <div class="bg-dark text-white font-bold rounded">
             <a href="{{route('admin.question.opcionmultiple.index')}}"><button class="btn btn-info m-3">Volver al menú principal</button></a>
         </div>

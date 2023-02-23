@@ -3,14 +3,14 @@
 @section('title', 'Notas evaluación final')
 
 @section('content_header')
-    <h1>Listado de notas evaluación final</h1>
+    <h1 class="text-danger"><strong>Listado de notas evaluación final</strong></h1>
 @stop
 
 @section('content')
 
 <div class="card">
     <div class="card-header">
-        <strong class="text-red">Reporte notas estudiantes evaluación final</strong>
+        <h6 class="text-center"><strong class="text-red">Reporte notas estudiantes evaluación final</strong></h6>
     </div>
 
     <div class="card-body">
@@ -46,6 +46,7 @@
                 <thead>
                     <tr>
                         <th>Estudiante</th>
+                        <th>Correo electrónico</th>
                         <th>Nombre evaluación</th>
                         <th>Nota</th>
                     </tr>
@@ -55,6 +56,7 @@
                     @foreach ($coleccionNotasPracticaFinal as $usuarionotas)
                         <tr>
                             <td>{{$usuarionotas['Estudiante']}}</td>
+                            <td>{{$usuarionotas['Correo']}}</td>
                             <td>{{$usuarionotas['Evaluacion']}}</td>
                             <td>{{$usuarionotas['Nota']}}</td>
                         </tr>

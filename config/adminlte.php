@@ -330,12 +330,12 @@ return [
             'route'  => 'admin.rules',
             'icon' => 'far fa-fw fa-file',
         ],
-        ['header' => 'GLOSARIO DE TÉRMINOS'],
-        [
-            'text' => 'Glosario',
-            'route'  => 'admin.glossary.index',
-            'icon' => 'far fa-fw fa-file',
-        ],
+        //['header' => 'GLOSARIO DE TÉRMINOS'],
+        //[
+        //    'text' => 'Glosario',
+        //    'route'  => 'admin.glossary.index',
+        //    'icon' => 'far fa-fw fa-file',
+        //],
         ['header' => 'RESULTADOS'],
         [
             'text' => 'Resultados',
@@ -375,12 +375,12 @@ return [
                 
             ],
         ],
-        ['header' => 'REPORTE NOTAS'],
-        [
-            'text' => 'Notas generales estudiante',
-            'route'  => 'admin.notes.allresults',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        //['header' => 'REPORTE NOTAS'],
+        //[
+        //    'text' => 'Notas generales estudiante',
+        //    'route'  => 'admin.notes.allresults',
+        //    'icon' => 'fas fa-fw fa-user',
+        //],
         ['header' => 'GESTION USUARIOS'],
         [
             'text' => 'Permisos usuarios',

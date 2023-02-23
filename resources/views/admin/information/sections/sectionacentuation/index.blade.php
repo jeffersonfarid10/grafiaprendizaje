@@ -3,7 +3,7 @@
 @section('title', 'Reglas acentuación nivel dos')
 
 @section('content_header')
-    <h1>Gestión de reglas ortográficas de acentuación nivel dos</h1>
+    <h1 class="text-danger"><strong>Gestión de reglas ortográficas de acentuación nivel dos</strong></h1>
 @stop
 
 @section('content')

@@ -3,7 +3,7 @@
 @section('title', 'Ver regla')
 
 @section('content_header')
-    <h1>Información de la regla</h1>
+    <h1 class="text-danger"><strong>Información de la regla</strong></h1>
 @stop
 
 @section('content')
@@ -17,11 +17,11 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <strong>Título:</strong>
+            <strong class="text-danger">Título:</strong>
             <br>
             <h1 class="card-title">{{$sectionword->name}}</h1>
             <br>
-            <strong>Regla principal a la que pertenece:</strong>
+            <strong class="text-danger">Regla principal a la que pertenece:</strong>
             <br>
             <h1 class="card-title">{{$sectionword->category->name}}</h1>
             <br>
@@ -31,7 +31,7 @@
             <!-- COMPROBAR SI EL CAMPO IMAGE TIENE CONTENIDO, SI TIENE CONTENIDO SE MUESTRA EL DIV, PERO SI EL CAMPO IMAGE ES NULL QUE NO SE MUESTRE LA SECCION -->
             @isset($sectionword->image)
                 <li class="list-group-item">
-                    <strong>Imagen:</strong>
+                    <strong class="text-danger">Imagen:</strong>
                     <br>
                     <img id="image" name="image" src="/storage/{{$sectionword->image}}" alt="" height="400px" width="700px">
                 </li>
@@ -49,7 +49,7 @@
 
             <!-- CAMPO BODY -->
             <div>
-                <strong>Contenido:</strong>
+                <strong class="text-danger">Contenido:</strong>
                 <br>
                 <p class="card-text">{!!$sectionword->body!!}</p>
             </div>
@@ -91,10 +91,10 @@
         </div>
         <div class="card-footer">
             <!-- INFORMACION DE A DONDE PERTENECE LA REGLA -->
-            <strong>Categoría principal: </strong>
+            <strong class="text-danger">Categoría principal: </strong>
             <h6>{{$sectionword->type}}</h6>
             <br>
-            <strong>Categoría secundaria:</strong>
+            <strong class="text-danger">Categoría secundaria:</strong>
             <h6>{{$category->name}}</h6>
         </div>
 
@@ -102,7 +102,7 @@
         @if(count($sectionword->posts) > 0)
             <div class="card-footer">
                 <!-- REGLAS DE NIVEL 2 ASOCIADAS -->
-                <strong>Reglas nivel tres asociadas:</strong>
+                <strong class="text-danger">Reglas nivel tres asociadas:</strong>
                 <br>
                 @foreach ($sectionword->posts as $post)
                     <h6>{{$post->name}}</h6>

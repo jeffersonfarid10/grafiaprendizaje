@@ -3,7 +3,7 @@
 @section('title', 'Preguntas sopa de letras')
 
 @section('content_header')
-    <h1>Gestión de preguntas de juego sopa de letras</h1>
+    <h1 class="text-danger"><strong>Gestión de actividades de juego sopa de letras</strong></h1>
 @stop
 
 @section('content')

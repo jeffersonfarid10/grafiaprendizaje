@@ -3,13 +3,14 @@
 @section('title', 'Crear pregunta')
 
 @section('content_header')
-    <h1>Crear pregunta opción múltiple con audio</h1>
+    <h1 class="text-danger"><strong>Crear pregunta opción múltiple con audio</strong></h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>Rellene los siguientes campos:</h4>
+        {{--<h4>Rellene los siguientes campos:</h4>--}}
+        <h5 class="text-danger"><strong> Rellene los siguientes campos:</strong></h5>
         <div class="bg-dark text-white font-bold rounded">
             <a href="{{route('admin.question.opcionmultiplea.index')}}">
                 <button class="btn btn-info m-3">Volver al menú principal</button>

@@ -3,14 +3,14 @@
 @section('title', 'Notas evaluación de práctica tres')
 
 @section('content_header')
-    <h1>Listado de notas evaluación de práctica tres</h1>
+    <h1 class="text-danger"><strong>Listado de notas evaluación de práctica tres</strong></h1>
 @stop
 
 @section('content')
 
 <div class="card">
     <div class="card-header">
-        <strong class="text-red">Reporte notas estudiantes evaluación de práctica tres</strong>
+        <h6 class="text-center"><strong class="text-red">Reporte notas estudiantes evaluación de práctica tres</strong></h6>
     </div>
 
     <div class="card-body">
@@ -47,6 +47,7 @@
                 <thead>
                     <tr>
                         <th>Estudiante</th>
+                        <th>Correo electrónico</th>
                         <th>Nombre evaluación</th>
                         <th>Nota</th>
                     </tr>
@@ -56,6 +57,7 @@
                     @foreach ($coleccionNotasPracticaTres as $usuarionotas)
                         <tr>
                             <td>{{$usuarionotas['Estudiante']}}</td>
+                            <td>{{$usuarionotas['Correo']}}</td>
                             <td>{{$usuarionotas['Evaluacion']}}</td>
                             <td>{{$usuarionotas['Nota']}}</td>
                         </tr>
