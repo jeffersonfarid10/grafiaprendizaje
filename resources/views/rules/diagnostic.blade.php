@@ -20,7 +20,7 @@
 
 
                     <!-- CONTENEDOR CON LA EVALUACION EN GOOGLE FORMS -->
-                    <div class="container mx-auto p-10">
+                    {{--<div class="container mx-auto p-10">
                         <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Antes de continuar</h3>
                         <p class="text-xl font-sora m-5">Por favor, antes de resolver la evaluación de diagnóstico, ingresa al link y responde al siguiente cuestionario.</p>
                         <div class="container mx-auto py-16 bg-amber-200 rounded-xl w-full">
@@ -31,7 +31,7 @@
                             </h3>
                             
                         </div>
-                    </div>
+                    </div>--}}
 
             @endif 
 

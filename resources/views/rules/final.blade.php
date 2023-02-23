@@ -21,7 +21,7 @@
             <!-- CON EL IF SE PREGUNTA SI LA VARIABLE $ISEVALUATIONASSIGNED ES VERDADERA, ES DECIR, SI EL USUARIO TIENE EXAMENES ASIGNADOS  -->
             @if ($isEvaluationAssigned)
                 <!-- CONTENEDOR CON LA TARJETA DE LA ENCUESTA-->
-                <div class="container mx-auto p-10">
+                {{--<div class="container mx-auto p-10">
                     <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Encuesta</h3>
                     <p class="text-xl font-sora m-5">Por favor, ingrese al siguiente link y responda a la siguiente encuesta.</p>
                     <!-- CONTENEDOR CON 1 CARD PARA MOSTRAR LA EVALUACION DE DIAGNOSTICO -->
@@ -33,7 +33,7 @@
                         </h3>
                     </div>
 
-                </div>
+                </div>--}}
             @endif 
 
 

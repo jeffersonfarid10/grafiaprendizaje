@@ -99,7 +99,7 @@
                                                                 <div class="text-center text-lg font-sora font-bold inline-block">Respuesta al enunciado {{$i+1}} :</div>
                                                             </td>
                                                             <td class="p-2 whitespace-nowrap content-center w-4/5">
-                                                                <input type="text" name="fanswers[]" class="inline-block rounded w-full" placeholder="Ingrese el enunciado correctamente escrito {{$i+1}}" value="{{old('answer_user')}}" spellcheck="false" required>
+                                                                <input type="text" name="fanswers[]" class="inline-block rounded w-full" placeholder="Ingrese el enunciado correctamente escrito {{$i+1}}" value="{{old('answer_user')}}" spellcheck="false" autocomplete="off" required>
                                                             </td>
                                                         </tr> 
                                                         @endfor
@@ -181,7 +181,7 @@
                                                                 <div class="text-center text-lg font-sora font-bold inline-block">Respuesta al enunciado {{$i+1}} :</div>
                                                             </td>
                                                             <td class="p-2 whitespace-nowrap content-center w-4/5">
-                                                                <input type="text" name="fanswers[]" class="inline-block rounded w-full" placeholder="Ingrese el enunciado correctamente escrito {{$i+1}}" value="{{old('answer_user')}}" spellcheck="false" required>
+                                                                <input type="text" name="fanswers[]" class="inline-block rounded w-full" placeholder="Ingrese el enunciado correctamente escrito {{$i+1}}" value="{{old('answer_user')}}" spellcheck="false" autocomplete="off" required>
                                                             </td>
                                                         </tr> 
                                                         @endfor

@@ -3,7 +3,7 @@
 @section('title', 'Evaluaciones asignadas')
 
 @section('content_header')
-    <h1>Evaluaciones asignadas</h1>
+    <h1 class="text-danger"><strong>Evaluaciones asignadas</strong></h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
 <div class="card">
     <div class="card-header">
         <div class="card-title">
-            <strong class="text-red">Evaluaciones asignadas al usuario {{$user->name}}</strong> 
+            <strong class="text-red">Evaluaciones asignadas al usuario: <h6 class="text-info"><strong>{{$user->name}}</strong></h6></strong>
         </div>
     </div>
     <div class="card-body">
@@ -21,9 +21,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Evaluacion</th>
-                        <th>Grupo</th>
+                        <th>#</th>
+                        <th>Evaluaciones asignadas</th>
+                        {{--<th>Grupo</th>--}}
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{$evaluation->id}}</td>
                             <td>{{$evaluation->name}}</td>
-                            <td>{{$evaluation->format}}</td>
+                            {{--<td>{{$evaluation->format}}</td>--}}
                             <td>
                                 <a href="/admin/results/{{$user->id}}/{{$evaluation->id}}">
                                     <button class="btn btn-info">Ver resultados</button>

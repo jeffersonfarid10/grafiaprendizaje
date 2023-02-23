@@ -3,7 +3,7 @@
 @section('title', 'Resultados Usuario')
 
 @section('content_header')
-    <h1>Resultados de usuarios</h1>
+    <h1 class="text-danger"><strong>Resultados de usuarios</strong></h1>
 @stop
 
 @section('content')
@@ -21,8 +21,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <td>Id</td>
+                        <th>Id</th>
                         <th>Nombre usuario</th>
+                        <th>Correo electrónico</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
                             <td>
                                 <a href="{{route('admin.results.assignedevaluations', $user)}}">
                                     <button class="btn btn-primary">Ver resultados</button>

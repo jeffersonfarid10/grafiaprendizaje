@@ -84,7 +84,7 @@
                                                             <div name="visible_answer" class="text-center text-xl font-sora font-bold inline-block">{{$answer->visible_answer}}</div>
                                                         </td>
                                                         <td class="p-2 whitespace-nowrap content-center">
-                                                            <input type="text" name="fanswers[]" class="inline-block rounded" placeholder="Ingrese la respuesta {{$key+1}}" value="{{old('answer_user')}}" spellcheck="false" required>
+                                                            <input type="text" name="fanswers[]" class="inline-block rounded" placeholder="Ingrese la respuesta {{$key+1}}" value="{{old('answer_user')}}" spellcheck="false" autocomplete="off" required>
                                                         </td>
                                                     </tr> 
                                                 @endforeach
@@ -158,7 +158,7 @@
                                                             <div name="visible_answer" class="text-center text-xl font-sora font-bold inline-block">{{$answer->visible_answer}}</div>
                                                         </td>
                                                         <td class="p-2 whitespace-nowrap content-center">
-                                                            <input type="text" name="fanswers[]" class="inline-block rounded" placeholder="Ingrese la respuesta {{$key+1}}" value="{{old('answer_user')}}" spellcheck="false" required>
+                                                            <input type="text" name="fanswers[]" class="inline-block rounded" placeholder="Ingrese la respuesta {{$key+1}}" value="{{old('answer_user')}}" spellcheck="false" autocomplete="off" required>
                                                         </td>
                                                     </tr> 
                                                 @endforeach
