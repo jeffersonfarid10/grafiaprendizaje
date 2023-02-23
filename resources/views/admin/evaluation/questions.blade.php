@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -87,18 +87,20 @@
                         </li>
                         <!--RESPUESTAS-->
                         <li class="list-group-item">
-                            <strong>Respuestas:</strong>
+                            <strong class="text-danger">Respuestas:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Palabras correctas:</h5>
+                                    {{--<h5 class="text-red font-bold">Palabras correctas:</h5>--}}
+                                    <strong class="text-danger">Palabras correctas</strong>
                                     
                                     @foreach ($pregunta->answers as $key=>$answer)
                                         <h6 class="card-text">{{$key+1}}. {{$answer->answer}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Palabras visibles:</h5>
+                                    {{--<h5 class="text-red font-bold">Palabras visibles:</h5>--}}
+                                    <strong class="text-danger">Palabras visibles</strong>
                                     
                                     @foreach ($pregunta->answers as $key=>$visible)
                                         <h6 class="card-text">{{$key+1}}. {{$visible->visible_answer}}</h6>
@@ -108,18 +110,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -138,7 +142,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -146,13 +150,13 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
                         <!-- RESPUESTAS -->
                         <li class="list-group-item">
-                            <strong>Respuestas:</strong>
+                            <strong class="text-danger">Respuestas:</strong>
                             <br>
                             @foreach ($pregunta->answers as $key=>$answer)
                                 <h6 class="card-text">{{$key+1}}. {{$answer->answer}}
@@ -164,18 +168,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -194,7 +200,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -202,19 +208,19 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
                         <!-- AUDIO -->
                         <li class="list-group-item">
-                            <strong>Audio</strong>
+                            <strong class="text-danger">Audio</strong>
                             <br>
                             <audio id="audio" name="audio" controls src="/storage/{{$pregunta->audio}}" type="audio">Tu navegador no soporta este elemento, utiliza otro navegador.</audio>
                         </li>
                         <!-- RESPUESTAS -->
                         <li class="list-group-item">
-                            <strong>Respuestas:</strong>
+                            <strong class="text-danger">Respuestas:</strong>
                             <br>
                             @foreach ($pregunta->answers as $key=>$answer)
                                 <h6 class="card-text">{{$key+1}}. {{$answer->answer}}
@@ -226,18 +232,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -256,7 +264,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -264,19 +272,19 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
                         <!-- AUDIO -->
                         <li class="list-group-item">
-                            <strong>Audio</strong>
+                            <strong class="text-danger">Audio</strong>
                             <br>
                             <audio id="audio" name="audio" controls src="/storage/{{$pregunta->audio}}" type="audio">Tu navegador no soporta este elemento, utiliza otro navegador.</audio>
                         </li>
                         <!-- RESPUESTAS -->
                         <li class="list-group-item">
-                            <strong>Oraciones correctas:</strong>
+                            <strong class="text-danger">Oraciones correctas:</strong>
                             <br>
                             @foreach ($pregunta->answers as $key=>$answer)
                                 <h6 class="card-text">{{$key+1}}. {{$answer->answer}}
@@ -285,18 +293,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -316,7 +326,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -324,13 +334,13 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
                         <!-- RESPUESTAS -->
                         <li class="list-group-item">
-                            <strong>Oraciones correctas:</strong>
+                            <strong class="text-danger">Oraciones correctas:</strong>
                             <br>
                             @foreach ($pregunta->answers as $key=>$answer)
                                 <h6 class="card-text">{{$key+1}}. {{$answer->answer}}
@@ -339,18 +349,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -370,7 +382,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -378,14 +390,14 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
                         
                         <!-- PARRAFO CORRECTO -->
                         <li class="list-group-item">
-                            <strong>Párrafo correcto:</strong>
+                            <strong class="text-danger">Párrafo correcto:</strong>
                             <br>
                             <div class="bg-white">
                                 @foreach ($pregunta->answers as $answer)
@@ -395,18 +407,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -428,7 +442,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indicacion)
                                 <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -436,7 +450,7 @@
                         </li>
                         <!-- IMAGEN -->
                         <li class="list-group-item">
-                            <strong>Imagen</strong>
+                            <strong class="text-danger">Imagen</strong>
                             <br>
                             <img id="image" name="image" src="/storage/{{$pregunta->image}}" alt="" height="400px" width="700px">
                         </li>
@@ -444,14 +458,14 @@
 
                         <!-- AUDIO -->
                         <li class="list-group-item">
-                            <strong>Audio</strong>
+                            <strong class="text-danger">Audio</strong>
                             <br>
                             <audio id="audio" name="audio" controls src="/storage/{{$pregunta->audio}}" type="audio">Tu navegador no soporta este elemento, utiliza otro navegador.</audio>
                         </li>
 
                         <!-- PARRAFO CORRECTO -->
                         <li class="list-group-item">
-                            <strong>Párrafo correcto:</strong>
+                            <strong class="text-danger">Párrafo correcto:</strong>
                             <br>
                             <div class="bg-white">
                                 @foreach ($pregunta->answers as $answer)
@@ -461,18 +475,20 @@
                         </li>
                         <!-- JUSTIFICACIONES-->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
@@ -493,7 +509,7 @@
                     <div class="card-body">
                         <!-- INDICACIONES -->
                         <li class="list-group-item">
-                            <strong>Indicaciones:</strong>
+                            <strong class="text-danger">Indicaciones:</strong>
                             <br>
                             @foreach ($pregunta->indications as $key=>$indication)
                                 <h6 class="card-text">{{$key+1}}. {{$indication->indication}}</h6>                                
@@ -501,29 +517,31 @@
                         </li>
                         <!-- PALABRA A BUSCAR Y ORACION GUIA-->
                         <li class="list-group-item">
-                            <strong>Enunciado</strong>
+                            <strong class="text-danger">Enunciado</strong>
                             @foreach ($pregunta->answers as $answer)
                                 <h6 class="card-text">{{$answer->visible_answer}}</h6>
                             @endforeach
                             <br>
-                            <strong>Palabra a encontrar</strong>
+                            <strong class="text-danger">Palabra por encontrar</strong>
                             @foreach ($pregunta->answers as $answer)
                                 <h6 class="card-text">{{$answer->answer}}</h6>
                             @endforeach
                         </li>
                         <!-- JUSTIFICACIONES -->
                         <li class="list-group-item">
-                            <strong>Justificaciones:</strong>
+                            <strong class="text-danger">Justificaciones:</strong>
                             <br>
                             <div class="row m-3">
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Justificaciones:</h5>
+                                    {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                    <strong class="text-danger">Justificaciones</strong>
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                     @endforeach
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-red font-bold">Reglas</h5>
+                                    {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                    <strong class="text-danger">Reglas</strong>
                                     @foreach ($pregunta->justifications as $key=>$justificacion)
                                         <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
                                     @endforeach
@@ -543,7 +561,7 @@
                 <div class="card-body">
                     <!-- INDICACIONES -->
                     <li class="list-group-item">
-                        <strong>Indicaciones:</strong>
+                        <strong class="text-danger">Indicaciones:</strong>
                         <br>
                         @foreach ($pregunta->indications as $key=>$indicacion)
                             <h6 class="card-text">{{$key+1}}. {{$indicacion->indication}}</h6>
@@ -551,23 +569,26 @@
                     </li>
                     <!-- RESPUESTAS -->
                     <li class="list-group-item">
-                        <strong>Respuestas:</strong>
+                        <strong class="text-danger">Respuestas:</strong>
                         <br>
                         <div class="row mb-3">
                              <div class="col">
-                                <h5 class="text-red font-bold">Palabras correctas:</h5>
+                                {{--<h5 class="text-red font-bold">Palabras correctas:</h5>--}}
+                                <strong class="text-danger">Palabras correctas:</strong>
                                 @foreach ($pregunta->answers as $key=>$answer)
                                     <h6 class="card-text">{{$key+1}}. {{$answer->answer}}</h6>
                                 @endforeach
                              </div>
                              <div class="col">
-                                <h5 class="text-red font-bold">Palabras incorrectas:</h5>
+                                {{--<h5 class="text-red font-bold">Palabras incorrectas:</h5>--}}
+                                <strong class="text-danger">Palabras incorrectas:</strong>
                                 @foreach ($pregunta->answers as $key=>$visible)
                                     <h6 class="card-text">{{$key+1}}. {{$visible->visible_answer}}</h6>
                                 @endforeach
                              </div>
                              <div>
-                                <h5 class="text-red font-bold">Oraciones:</h5>
+                                {{--<h5 class="text-red font-bold">Oraciones:</h5>--}}
+                                <strong class="text-danger">Enunciados visibles:</strong>
                                 @foreach ($pregunta->answers as $key=>$oracion)
                                     <h6 class="card-text">{{$key+1}}. {{$oracion->second_answer}}</h6>
                                 @endforeach
@@ -576,17 +597,19 @@
                     </li>
                     <!-- JUSTIFICACIONES -->
                     <li class="list-group-item">
-                        <strong>Justificaciones:</strong>
+                        <strong class="text-danger">Justificaciones:</strong>
                         <br>
                         <div class="row m-3">
                             <div class="col">
-                                <h5 class="text-red font-bold">Justificaciones:</h5>
+                                {{--<h5 class="text-red font-bold">Justificaciones:</h5>--}}
+                                <strong class="text-danger">Justificaciones</strong>
                                 @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                                 @endforeach
                             </div>
                             <div class="col">
-                                <h5 class="text-red font-bold">Reglas</h5>
+                                {{--<h5 class="text-red font-bold">Reglas</h5>--}}
+                                <strong class="text-danger">Reglas</strong>
                                 @foreach ($pregunta->justifications as $key=>$justificacion)
                                     <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
                                 @endforeach
