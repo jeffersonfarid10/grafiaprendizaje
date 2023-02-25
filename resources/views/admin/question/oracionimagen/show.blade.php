@@ -71,14 +71,14 @@
                         <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                         @endforeach
                     </div>
-                    <div class="col">
+                    {{--<div class="col">--}}
                         {{--<h5 class="text-red font-bold">Reglas</h5>--}}
-                        <strong class="text-danger">Reglas</strong>
+                    {{--    <strong class="text-danger">Reglas</strong>
                         
                         @foreach ($oracionimagen->justifications as $key=>$justificacion)
                             <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
                         @endforeach
-                    </div>
+                    </div>--}}
                 </div>
             </li>
         </ul>
