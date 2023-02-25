@@ -65,7 +65,7 @@
             SE AGREGO EL CAMPO RULE EN LA TABLA QUESTIONS QUE SIRVE PARA AGREGAR LAS REGLAS ORTOGRAFICAS
             QUE SE ESTAN ANALIZANDO EN LAS ACTIVIDADES DE PRACTICA -->
             <div class="form-group">
-                <label>Información de reglas ortográficas:</label>
+                <label>Información:</label>
                 <textarea name="rule" id="rule" class="form-control" value="{{old('rule')}}"></textarea>
                 <!-- MENSAJE DE ERROR DE VALIDACION -->
                 @error('rule')

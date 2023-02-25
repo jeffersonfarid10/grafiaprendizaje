@@ -63,7 +63,7 @@
 
             <!-- ACTUALIZACION SE AGREGA EL CAMPO RULE EN LA TABLA QUESTIONS -->
             <div class="form-group">
-                <label>Información de reglas ortográficas:</label>
+                <label>Información:</label>
                 <br>
                 <textarea name="rule" id="rule" class="form-control" value="{{$opcionmultiplei->rule}}">{{$opcionmultiplei->rule}}</textarea>
 
