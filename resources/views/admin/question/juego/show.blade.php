@@ -46,7 +46,7 @@
             @endif
 
             <li class="list-group-item">
-                <strong class="text-danger">Oracion visible al usuario:</strong>
+                <strong class="text-danger">Oración visible al usuario:</strong>
                 <br>
                 <div class="bg-white">
                     @foreach ($juego->answers as $answer)
