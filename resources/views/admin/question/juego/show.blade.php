@@ -39,7 +39,7 @@
             <!-- ACTUALIZACION, SI LA PREGUNTA TIENE EL CAMPO RULE QUE SE MUESTRE EL CONTENIDO -->
             @if ($juego->rule)
                 <li class="list-group-item">
-                    <strong class="text-danger">Información de reglas ortográficas:</strong>
+                    <strong class="text-danger">Información:</strong>
                     <br>
                     <p class="card-text">{!!$juego->rule!!}</p>
                 </li>
@@ -75,14 +75,14 @@
                         <h6 class="card-text">{{$key+1}}. {{$justificacion->reason}}</h6>
                         @endforeach
                     </div>
-                    <div class="col">
+                    {{--<div class="col">--}}
                         {{--<h5 class="text-red font-bold">Reglas</h5>--}}
-                        <strong class="text-danger">Reglas</strong>
+                    {{--    <strong class="text-danger">Reglas</strong>
                         
                         @foreach ($juego->justifications as $key=>$justificacion)
                             <h6 class="card-text">{{$key+1}}. {{$justificacion->rule}}</h6>
                         @endforeach
-                    </div>
+                    </div>--}}
                 </div>
             </li>
         </ul>
