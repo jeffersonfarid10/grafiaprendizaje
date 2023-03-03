@@ -53,7 +53,7 @@
         <div class="container">
             <div class="row">
               <div class="col-12 col-md-6 border">
-                <h5 class="text-red pt-2 m-5 "><strong>Tu respuesta:</strong></h5>
+                <h5 class="text-red pt-2 m-5 "><strong>Respuesta:</strong></h5>
                 @foreach ($answersUser as $result)
                 <h4 class="text-center m-4"><strong>{{$result->answer_user}}</strong></h4>
                 @endforeach
