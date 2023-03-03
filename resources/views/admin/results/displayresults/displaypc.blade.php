@@ -46,13 +46,13 @@
         <!-- DIV QUE CONTIENE EL ANALISIS GENERAL DE LAS RESPUESTAS DEL USUARIO -->
         <div class="container border border-dark rounded mb-5" >
             <header class="px-5 py-4 border-bottom">
-                <h2 class="text-red text-center"><strong>Revisión general de tus respuestas:</strong></h2>
+                <h2 class="text-red text-center"><strong>Revisión general de las respuestas:</strong></h2>
             </header>
             <!-- GRID CON DOS COLUMNAS QUE CONTIENE LAS PALABRAS CORRECTAS Y PALABRAS INCORRECTAS DEL USUARIO -->
             <div class="row">
                 <!-- RESPUESTA USUARIO -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red mt-4 ml-4 mb-5"><strong>Tus respuestas correctas:</strong></h5>
+                    <h5 class="text-red mt-4 ml-4 mb-5"><strong>Respuestas correctas usuario:</strong></h5>
                     <div class="container-fluid mx-auto p-5">
                         <!-- RECORRER LAS RESPUESTAS CORRECTAS DEL USUARIO -->
                         @foreach ($palabrasAcertadas as $correcta)
@@ -63,7 +63,7 @@
                 </div>
                 <!-- RESPUESTA CORRECTA -->
                 <div class="col-12 col-md-6 border">
-                    <h5 class="text-red mt-4 ml-4 mb-5"><strong>Tus respuestas incorrectas:</strong></h5>
+                    <h5 class="text-red mt-4 ml-4 mb-5"><strong>Respuestas incorrectas usuario:</strong></h5>
                     <div class="container-fluid mx-auto p-5">
                         <!-- RECORRER LAS RESPUESTAS INCORRECTAS DEL USUARIO -->
                         @foreach ($palabrasIncorrectas as $incorrecta)
@@ -116,7 +116,7 @@
         <!-- DIV QUE CONTIENE EL TITULO DE ANALISIS DE CADA RESPUESTA Y UNA DESCRIPCION -->
         <div class="p-5">
             <h1 class="text-start text-red m-5 pb-5"><strong>Revisión de cada respuesta:</strong></h1>
-            <p class="h2 mb-5 text-justify">A continuación puedes ver en detalle la revisión de cada una de tus respuestas.</p>
+            <p class="h2 mb-5 text-justify">A continuación, puedes ver en detalle la revisión de cada una de las respuestas del usuario.</p>
         </div>
 
 
@@ -140,7 +140,7 @@
                 <div class="row">
                     <!-- RESPUESTA USUARIO -->
                     <div class="col-12 col-md-6 border">
-                        <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                        <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
                         <h4 class="text-center m-4"><strong>{{$palabraUsuarioUno}}</strong></h4>
                     </div>
                     <!-- RESPUESTA CORRECTA -->
@@ -163,7 +163,7 @@
                 @if (!empty($resultadoPalabraLetrasCorrectasUno) )
                     <!-- GRID QUE MUESTRA EL POSICIONAMIENTO CORRECTO DE LAS LETRAS DE LA PALABRA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresaste:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresó el usuario:</strong></h5>
                         <h4 class="text-center mt-4"><strong>{{$resultadoPalabraLetrasCorrectasUno}}</strong></h4>
                     </div>
                 @endif
@@ -171,7 +171,7 @@
                 @if (count($resultadoLetrasMalColocadasUno) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
                         @foreach ($resultadoLetrasMalColocadasUno as $letra)
@@ -187,7 +187,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraUno))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
                         @foreach ($resultadoSeccionesQueLeFaltaronALaPalabraUno as $letra)
@@ -220,7 +220,7 @@
                 <div class="row">
                     <!-- RESPUESTA USUARIO -->
                     <div class="col-12 col-md-6 border">
-                        <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                        <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
                         <h4 class="text-center m-4"><strong>{{$palabraUsuarioDos}}</strong></h4>
                     </div>
                     <!-- RESPUESTA CORRECTA -->
@@ -243,7 +243,7 @@
                 @if (!empty($resultadoPalabraLetrasCorrectasDos) )
                     <!-- GRID QUE MUESTRA EL POSICIONAMIENTO CORRECTO DE LAS LETRAS DE LA PALABRA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresaste:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresó el usuario:</strong></h5>
                         <h4 class="text-center mt-4"><strong>{{$resultadoPalabraLetrasCorrectasDos}}</strong></h4>
                     </div>
                 @endif
@@ -251,7 +251,7 @@
                 @if (count($resultadoLetrasMalColocadasDos) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
                         @foreach ($resultadoLetrasMalColocadasDos as $letra)
@@ -267,7 +267,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraDos))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
                         @foreach ($resultadoSeccionesQueLeFaltaronALaPalabraDos as $letra)
@@ -300,7 +300,7 @@
                 <div class="row">
                     <!-- RESPUESTA USUARIO -->
                     <div class="col-12 col-md-6 border">
-                        <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                        <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
                         <h4 class="text-center m-4"><strong>{{$palabraUsuarioTres}}</strong></h4>
                     </div>
                     <!-- RESPUESTA CORRECTA -->
@@ -323,7 +323,7 @@
                 @if (!empty($resultadoPalabraLetrasCorrectasTres) )
                     <!-- GRID QUE MUESTRA EL POSICIONAMIENTO CORRECTO DE LAS LETRAS DE LA PALABRA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresaste:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresó el usuario:</strong></h5>
                         <h4 class="text-center mt-4"><strong>{{$resultadoPalabraLetrasCorrectasTres}}</strong></h4>
                     </div>
                 @endif
@@ -331,7 +331,7 @@
                 @if (count($resultadoLetrasMalColocadasTres) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -349,7 +349,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraTres))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -384,7 +384,7 @@
                 <div class="row">
                     <!-- RESPUESTA USUARIO -->
                     <div class="col-12 col-md-6 border">
-                        <h5 class="text-red pt-2 m-5"><strong>Tu respuesta</strong>:</h5>
+                        <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong>:</h5>
                         <h4 class="text-center m-4"><strong>{{$palabraUsuarioCuatro}}</strong></h4>
                     </div>
                     <!-- RESPUESTA CORRECTA -->
@@ -407,7 +407,7 @@
                 @if (!empty($resultadoPalabraLetrasCorrectasCuatro) )
                     <!-- GRID QUE MUESTRA EL POSICIONAMIENTO CORRECTO DE LAS LETRAS DE LA PALABRA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresaste:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresó el usuario:</strong></h5>
                         <h4 class="text-center mt-4"><strong>{{$resultadoPalabraLetrasCorrectasCuatro}}</strong></h4>
                     </div>
                 @endif
@@ -415,7 +415,7 @@
                 @if (count($resultadoLetrasMalColocadasCuatro) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -433,7 +433,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraCuatro))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -468,7 +468,7 @@
                 <div class="row">
                     <!-- RESPUESTA USUARIO -->
                     <div class="col-12 col-md-6 border">
-                        <h5 class="text-red pt-2 m-5"><strong>Tu respuesta:</strong></h5>
+                        <h5 class="text-red pt-2 m-5"><strong>Respuesta usuario:</strong></h5>
                         <h4 class="text-center m-4"><strong>{{$palabraUsuarioCinco}}</strong></h4>
                     </div>
                     <!-- RESPUESTA CORRECTA -->
@@ -491,7 +491,7 @@
                 @if (!empty($resultadoPalabraLetrasCorrectasCinco) )
                     <!-- GRID QUE MUESTRA EL POSICIONAMIENTO CORRECTO DE LAS LETRAS DE LA PALABRA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresaste:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Posicionamiento correcto de las letras que ingresó el usuario:</strong></h5>
                         <h4 class="text-center mt-4"><strong>{{$resultadoPalabraLetrasCorrectasCinco}}</strong></h4>
                     </div>
                 @endif
@@ -499,7 +499,7 @@
                 @if (count($resultadoLetrasMalColocadasCinco) > 0)
                     <!-- GRID QUE MUESTRA LAS LETRAS O ELEMENTOS DE LA RESPUESTA DEL USUARIO QUE SON INCORRECTOS -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Elementos incorrectos de la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY PARA MOSTRAR LAS LETRAS O ELEMENTOS INCORRECTOS DE LA RESPUESTA DEL USUARIO  -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -517,7 +517,7 @@
                 @if (count($resultadoSeccionesQueLeFaltaronALaPalabraCinco))
                     <!-- GRID QUE MUESTRA LAS LETRAS QUE EL USUARIO OLVIDO AGREGAR A SU RESPUESTA -->
                     <div class="px-5 py-4 border-top border-bottom m-2">
-                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en tu respuesta:</strong></h5>
+                        <h5 class="text-start text-red pt-2 mt-2 mb-2 ml-2"><strong>Letras que no se encontraron en la respuesta del usuario:</strong></h5>
                         <!-- RECORRER EL ARRAY DE LETRAS QUE EL USUARIO NO AGREGO A SU RESPUESTA -->
                         <div>
                             <span class="h4 text-red pt-2 mt-2 mb-2 ml-2"><strong> | </strong></span>
@@ -538,7 +538,7 @@
                 <h1 class="text-start text-red m-5 pb-5"><strong>Reglas ortográficas que se tomaron en cuenta para esta actividad:</strong></h1>
                 <li class="h5 mb-5 text-justify">En la siguiente sección se presentan las reglas ortográficas que se emplearon para la realización de esta actividad.</li>
                 <li class="h5 mb-5 text-justify">Haz click en la regla ortográfica de tu interés y accede a más información sobre el uso de esa regla ortográfica.</li>
-                <li class="h5 mb-5 text-justify">Adicionalmente, tienes algunas aclaraciones sobre la actividad que acabas de realizar.</li>
+                <li class="h5 mb-5 text-justify">Adicionalmente, se presentan algunas aclaraciones sobre la actividad.</li>
             </div>
          
 

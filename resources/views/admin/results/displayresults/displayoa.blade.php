@@ -132,7 +132,7 @@
     <!-- DIV QUE CONTIENE EL TITULO DE ANALISIS DE CADA RESPUESTA Y UNA DESCRIPCION -->
     <div class="p-5">
         <h1 class="text-start text-red m-5 pb-5"><strong>Revisión de cada respuesta:</strong></h1>
-        <p class="h2 mb-5 text-justify">A continuación puedes ver en detalle la revisión de cada una de las respuestas.</p>
+        <p class="h2 mb-5 text-justify">A continuación, puedes ver en detalle la revisión de cada una de las respuestas.</p>
     </div>
 
 
@@ -211,7 +211,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
                                     <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
@@ -221,7 +221,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -448,7 +448,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
                                     <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
@@ -458,7 +458,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -684,7 +684,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
                                     <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
@@ -694,7 +694,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -921,7 +921,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
                                     <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
@@ -931,7 +931,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -1156,7 +1156,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 <h5 class="text-center pt-2 mt-2 mb-2 ml-2">
                                     <strong>*Se han eliminado los espacios adicionales que agregó en la respuesta*</strong></h5>
                                 
@@ -1166,7 +1166,7 @@
                             <!-- TITULO PARA MOSTRAR LA REVISION DETALLADA DE LA RESPUESTA -->
                             <div class="px-5 py-4 border-top border-bottom m-2">
                                 <h5 class="text-center text-red pt-2 mt-2 mb-2 ml-2">
-                                    <strong>A continuación puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
+                                    <strong>A continuación, puedes revisar los elementos incorrectos de la respuesta.</strong></h5>
                                 
                             </div>
 
@@ -1325,7 +1325,7 @@
         <h1 class="text-start text-red m-5 pb-5"><strong>Reglas ortográficas que se tomaron en cuenta para esta actividad:</strong></h1>
         <li class="h5 mb-5 text-justify">En la siguiente sección se presentan las reglas ortográficas que se emplearon para la realización de esta actividad.</li>
         <li class="h5 mb-5 text-justify">Haz click en la regla ortográfica de tu interés y accede a más información sobre el uso de esa regla ortográfica.</li>
-        <li class="h5 mb-5 text-justify">Adicionalmente, tienes algunas aclaraciones sobre la actividad que acabas de realizar.</li>
+        <li class="h5 mb-5 text-justify">Adicionalmente, se presentan algunas aclaraciones sobre la actividad.</li>
     </div>
 
 

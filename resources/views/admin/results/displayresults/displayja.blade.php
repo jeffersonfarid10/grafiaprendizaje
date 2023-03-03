@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row">
               <div class="col-12 col-md-6 border">
-                <h5 class="text-red pt-2 m-5 "><strong>Tu respuesta:</strong></h5>
+                <h5 class="text-red pt-2 m-5 "><strong>Respuesta usuario:</strong></h5>
                     <h4 class="text-center m-4"><strong>{{$resultUser->answer_user}}</strong></h4>
               </div>
               <div class="col-12 col-md-6 border">
@@ -83,7 +83,7 @@
         <h1 class="text-start text-red m-5 pb-5"><strong>Reglas ortográficas que se tomaron en cuenta para esta actividad:</strong></h1>
         <li class="h5 mb-5 text-justify">En la siguiente sección se presentan las reglas ortográficas que se emplearon para la realización de esta actividad.</li>
         <li class="h5 mb-5 text-justify">Haz click en la regla ortográfica de tu interés y accede a más información sobre el uso de esa regla ortográfica.</li>
-        <li class="h5 mb-5 text-justify">Adicionalmente, tienes algunas aclaraciones sobre la actividad que acabas de realizar.</li>
+        <li class="h5 mb-5 text-justify">Adicionalmente, se presentan algunas aclaraciones sobre la actividad.</li>
     </div>
 
 
