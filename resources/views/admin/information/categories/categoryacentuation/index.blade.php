@@ -3,7 +3,7 @@
 @section('title', 'Reglas acentuación nivel uno')
 
 @section('content_header')
-    <h1 class="text-danger"><strong>Gestión de reglas ortográficas de acentuación nivel uno</strong></h1>
+    <h1 class="text-danger"><strong>Gestión de publicaciones de acentuación nivel uno</strong></h1>
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
 
         <div class="card-header">
             <a href="{{route('admin.categories.categoryacentuation.create')}}">
-                <button class="btn btn-success m-3">Crear nueva regla ortográfica de acentuación nivel uno</button>
+                <button class="btn btn-success m-3">Crear nueva publicación de acentuación nivel uno</button>
             </a>
         </div>
     </div>
@@ -44,11 +44,12 @@
                         <tr>
                             <td>{{$categoryacentuation->id}}</td>
                             <td>{{$categoryacentuation->name}}</td>
-                            <td>{{$categoryacentuation->type}}</td>
+                            {{--<td>{{$categoryacentuation->type}}</td>--}}
+                            <td>Acentuación de palabras</td>
                             {{--<td>{{$categoryacentuation->clasification}}</td>--}}
                             <td>
                                 <a href="{{route('admin.categories.categoryacentuation.show', $categoryacentuation)}}">
-                                    <button class="btn btn-primary">Ver regla</button>
+                                    <button class="btn btn-secondary">Ver información</button>
                                 </a>
                             </td>
                             <td>

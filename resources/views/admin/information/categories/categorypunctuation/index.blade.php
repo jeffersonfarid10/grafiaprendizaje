@@ -20,7 +20,7 @@
 
         <div class="card-header">
             <a href="{{route('admin.categories.categorypunctuation.create')}}">
-                <button class="btn btn-success m-3">Crear nueva regla ortográfica de puntuación nivel uno</button>
+                <button class="btn btn-success m-3">Crear nueva publicación de puntuación nivel uno</button>
             </a>
         </div>
     </div>
