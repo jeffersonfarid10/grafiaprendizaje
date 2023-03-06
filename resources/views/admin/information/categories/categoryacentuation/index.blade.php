@@ -49,7 +49,7 @@
                             {{--<td>{{$categoryacentuation->clasification}}</td>--}}
                             <td>
                                 <a href="{{route('admin.categories.categoryacentuation.show', $categoryacentuation)}}">
-                                    <button class="btn btn-secondary">Ver información</button>
+                                    <button class="btn btn-secondary">Ver</button>
                                 </a>
                             </td>
                             <td>
