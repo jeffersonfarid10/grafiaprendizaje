@@ -21,8 +21,8 @@
                 <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-green-700 m-5">Actividades de práctica:</h3>
                 <p class="text-xl font-sora m-5">A continuación, puedes acceder a varias actividades de práctica divididas en tres secciones:</p>
                 <li class="text-xl font-sora m-5">Actividades para poner en práctica tu escritura.</li>
-                <li class="text-xl font-sora m-5">Actividades para poner en práctica la capacidad de escribir correctamente lo que escuchas.</li>
-                <li class="text-xl font-sora m-5">Actividades para identificar de forma visual la correcta aplicación de las reglas ortográficas.</li>
+                <li class="text-xl font-sora m-5">Actividades para poner en práctica la capacidad de escribir o diferenciar correctamente lo que escuchas.</li>
+                <li class="text-xl font-sora m-5">Actividades para identificar de forma visual palabras o enunciados correctamente escritos.</li>
                 <h3 class="text-2xl sm:text-3xl md:text-4xl text-center font-anton text-yellow-700 m-5">¡Ingresa a la sección de tu interés y completa las actividades!</h3>
                 <!-- CONTENEDOR CON 3 CARD 1 PARA CADA TIPO DE REGLA ORTOGRAFICA-->
                 <div class="container mx-auto py-16 bg-indigo-500 rounded-xl w-full">
