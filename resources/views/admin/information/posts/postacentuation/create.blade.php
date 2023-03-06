@@ -52,9 +52,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Sección nivel dos:</label>
+                    <label>Categoría nivel dos:</label>
                     <select name="section_id" id="section_id" class="form-control" required>
-                        <option disabled selected>Seleccione una regla</option>
+                        <option disabled selected>Seleccione una categoría</option>
                         @foreach ($sections as $sectionacentuation)
                             <option value="{{$sectionacentuation->id}}">{{$sectionacentuation->name}}</option>
                         @endforeach
