@@ -3,7 +3,7 @@
 @section('title', 'Ver regla')
 
 @section('content_header')
-    <h1 class="text-danger"><strong>Información de la regla</strong></h1>
+    <h1 class="text-danger"><strong>Información de la publicación</strong></h1>
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
             <br>
             <h1 class="card-title">{{$sectionacentuation->name}}</h1>
             <br>
-            <strong class="text-danger">Regla principal a la que pertenece:</strong>
+            <strong class="text-danger">Categoría a la que pertenece:</strong>
             <br>
             <h1 class="card-title">{{$sectionacentuation->category->name}}</h1>
             <br>
@@ -49,7 +49,7 @@
 
             <!-- CAMPO BODY -->
             <div>
-                <strong class="text-danger">Contenido:</strong>
+                <h4><strong class="text-danger">Contenido:</strong></h4>
                 <br>
                 <p class="card-text">{!!$sectionacentuation->body!!}</p>
             </div>
