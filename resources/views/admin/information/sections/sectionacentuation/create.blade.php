@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label>Categoría nivel uno:</label>
                     <select name="category_id" id="category_id" class="form-control" required>
-                        <option disabled selected>Seleccione una regla</option>
+                        <option disabled selected>Seleccione una categoría</option>
                         @foreach ($categories as $categoryacentuation)
                             <option value="{{$categoryacentuation->id}}">{{$categoryacentuation->name}}</option>
                         @endforeach
