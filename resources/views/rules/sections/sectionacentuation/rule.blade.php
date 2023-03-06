@@ -15,7 +15,7 @@
 
 
         <!-- SE CREA UN GRID CON LA NAVEGACION DE REGRESAR A  SE DEBE AGREGAR LA CLASE INLINE-BLOCK A CADA ETIQUETA A, PORQUE SINO NO VA A APARECER LAS REGLAS EN LA MISMA LINEA-->
-        <div class="container">
+        {{--<div class="container">
             Selecciona alguna categoría anterior para regresar a ella: 
             <br>
             
@@ -30,7 +30,7 @@
                     <p class="leading-relaxed font-sora font-semibold text-gray-800">{{$categoryacentuationObject->name}}</p>
                 </a>
             </div>
-        </div>
+        </div>--}}
 
 
         <!-- SE CREA UN GRID CON 3 COLUMNAS, 2 COLUMNAS PARA EL CONTENIDO DE LA REGLA ORTOGRAFICA Y UNA COLUMNA PARA LAS REGLAS RELACIONADAS -->
@@ -119,8 +119,8 @@
                 <!-- SI TIENE REGLAS DE NIVEL 3 POSTS ENTONCES QUE SE MUESTREN -->
                 @if (count($sectionacentuationObject->posts) > 0)
                     <div class="container mx-auto p-10 bg-rose-200 rounded-2xl">
-                        <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton m-5">Reglas ortográficas asociadas</h3>
-                        <p class="text-xl font-sora m-5 font-semibold">Haz click en la regla ortográfica de tu interés para acceder a información más detallada.</p>
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton m-5">Información asociada:</h3>
+                        <p class="text-xl font-sora m-5 font-semibold">Haz click en la información de tu interés:</p>
 
                             <div class="container px-5 py-4 mx-auto">
                                 <div class="grid grid-cols-1 divide-y divide-slate-800">
@@ -158,7 +158,7 @@
                     <!-- REGLAS NIVEL 2 SIMILARES (SECTIONS) -->
                     @if (count($sugerenciasniveldos) > 0)
                         <div class="bg-rose-400 rounded-xl mb-4">
-                            <h2 class="pl-3 pt-3 text-black font-semibold font-sora">Más reglas ortográficas de: " {{$categoryacentuationObject->name}} "</h2>
+                            <h2 class="pl-3 pt-3 text-black font-semibold font-sora">Más información de: "{{$categoryacentuationObject->name}}"</h2>
                             <div class="p-3 grid grid-cols-1 divide-y divide-yellow-400">
 
                                 <!-- SE RECORREN LAS REGLAS SIMILARES -->
@@ -185,8 +185,9 @@
 
                     <!-- REGLAS NIVEL 1 SIMILARES (CATEGORIES) -->
                     @if (count($sugerenciasniveluno) > 0)
-                        <div class="bg-blue-700 rounded-xl mb-4">
-                            <h2 class="pl-3 pt-3 text-white font-semibold font-sora">Más reglas ortográficas de: " {{$categoryacentuationObject->type}} "</h2>
+                        <div class="bg-blue-400 rounded-xl mb-4">
+                            {{--<h2 class="pl-3 pt-3 text-white font-semibold font-sora">Más información de: " {{$categoryacentuationObject->type}} "</h2>--}}
+                            <h2 class="pl-3 pt-3 text-white font-semibold font-sora">Más información de: "Acentuación de palabras"</h2>
                             <div class="p-3 grid grid-cols-1 divide-y divide-yellow-400">
 
                                 <!-- SE RECORREN LAS REGLAS SIMILARES -->
