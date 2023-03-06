@@ -173,7 +173,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 divide-x divide-gray-300 rounded" >
                 <!-- COLUMNA PARA LAS ORACIONES -->
                 <div class="col-span-1 ml-10 mb-10">
-                    <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5 text-lg">Cada enunciado posse una palabra escrita incorrectamente, encuentre la palabra bien escrita en la sopa de letras:</h5>
+                    <h5 class="font-bold font-sora text-red-500 mt-4 ml-4 mb-5 text-lg">Cada ítem posee una palabra escrita incorrectamente, encuentre la palabra bien escrita en la sopa de letras:</h5>
                     <div>
                         <!-- RECORRER LAS ORACIONES VISIBLES -->
                         <!-- ACTUALIZACION, LAS ORACIONES VISIBLES SE RECORREN EN FUNCION DE LAS PALABRAS ALEATORIAS ASIGNADAS -->
