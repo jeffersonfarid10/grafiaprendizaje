@@ -185,7 +185,7 @@
 
                     <!-- REGLAS NIVEL 1 SIMILARES (CATEGORIES) -->
                     @if (count($sugerenciasniveluno) > 0)
-                        <div class="bg-blue-400 rounded-xl mb-4">
+                        <div class="bg-pink-400 rounded-xl mb-4">
                             {{--<h2 class="pl-3 pt-3 text-white font-semibold font-sora">Más información de: " {{$categoryacentuationObject->type}} "</h2>--}}
                             <h2 class="pl-3 pt-3 text-white font-semibold font-sora">Más información de: "Acentuación de palabras"</h2>
                             <div class="p-3 grid grid-cols-1 divide-y divide-yellow-400">
@@ -213,7 +213,7 @@
                     
 
                 </div>
-            </div> 
+            </div>
         </div>
 
 
