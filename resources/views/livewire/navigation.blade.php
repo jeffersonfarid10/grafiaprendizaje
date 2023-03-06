@@ -51,9 +51,9 @@
                     {{--<a href="{{route('dashboard')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>--}}
                     <a href="{{route('dashboard')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-7 lg:py-4 rounded-md text-sm font-bold lg:text-base">Home</a>
                     <a href="{{route('estudiante.diagnostico')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Evaluación de diagnóstico</a>
-                    <a href="{{route('estudiante.letterslevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Reglas ortográficas de palabras</a>
-                    <a href="{{route('estudiante.acentuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Reglas ortográficas de acentuación</a>
-                    <a href="{{route('estudiante.punctuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Reglas ortográficas de puntuación</a>
+                    <a href="{{route('estudiante.letterslevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Correcta escritura de palabras</a>
+                    <a href="{{route('estudiante.acentuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Acentuación de palabras</a>
+                    <a href="{{route('estudiante.punctuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-2 rounded-md text-sm font-bold lg:text-base">Uso de los signos de puntuación</a>
                     <a href="{{route('estudiante.practica')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-5 lg:py-2 rounded-md text-sm font-bold lg:text-base">Actividades de práctica</a>
                     <a href="{{route('estudiante.final')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-1 lg:px-3 py-5 lg:py-2 rounded-md text-sm font-bold lg:text-base">Evaluación Final</a>
                     
@@ -128,11 +128,11 @@
   
         <a href="{{route('estudiante.diagnostico')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Evaluación de diagnóstico</a>
   
-        <a href="{{route('estudiante.letterslevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reglas ortográficas de palabras</a>
+        <a href="{{route('estudiante.letterslevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Correcta escritura de palabras</a>
   
-        <a href="{{route('estudiante.acentuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reglas ortográficas de acentuación</a>
+        <a href="{{route('estudiante.acentuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Acentuación de palabras</a>
 
-        <a href="{{route('estudiante.punctuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reglas ortográficas de puntuación</a>
+        <a href="{{route('estudiante.punctuationlevelone')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Uso de los signos de puntuación</a>
 
         <a href="{{route('estudiante.practica')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Actividades de práctica</a>
 
