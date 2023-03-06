@@ -52,6 +52,10 @@
                 <h4><strong class="text-danger">Contenido:</strong></h4>
                 <br>
                 <p class="card-text">{!!$sectionacentuation->body!!}</p>
+
+                <!-- Bibliografía -->
+                <h5><strong>Bibliografía:</strong></h5>
+                <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa. </p>
             </div>
 
 
