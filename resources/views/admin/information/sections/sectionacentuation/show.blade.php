@@ -53,16 +53,13 @@
                 <br>
                 <p class="card-text">{!!$sectionacentuation->body!!}</p>
 
-                <!-- Bibliografía -->
-                <h5><strong>Bibliografía:</strong></h5>
-                <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa. </p>
             </div>
 
 
             <!-- COMPROBAR SI EL CAMPO EXAMPLE TIENE CONTENIDO, SI TIENE CONTENIDO SE MUESTRA EL CONTENIDO, PERO SI EL CAMPO ES NULL QUE NO SE MUESTRE LA SECCION -->
             @isset($sectionacentuation->example)
                 <div>
-                    <strong>Ejemplos:</strong>
+                    
                     <br>
                     <p class="card-text">{!!$sectionacentuation->example!!}</p>
                 </div>

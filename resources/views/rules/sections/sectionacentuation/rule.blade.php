@@ -78,11 +78,6 @@
                         {!!$sectionacentuationObject->body!!}
                     </div>
 
-                    <!-- Bibliografía -->
-                    <div class="p-4 ml-5 md:ml-10 lg:ml-20 overflow-auto prose lg:prose-2xl text-justify bg-amber-200 rounded-sm">
-                        <h5 class="font-bold text-black">Bibliografía:</h5>
-                        <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa. </p>
-                    </div>
                     
                 </div>
 
@@ -94,7 +89,7 @@
                         <!-- PARA MOSTRAR EL TEXTO DE CK EDITOR CON LOS ESTILOS SE CORRE EL SIGUIENTE COMANDO -->
                         {{-- npm install -D @tailwindcss/typography --}}
                         <!-- Y SE DEBE CREAR UN DIV CON LA CLASE:  class="prose lg:prose-xl" -->
-                        <div class="p-4 ml-5 md:ml-10 lg:ml-20 overflow-auto prose lg:prose-2xl text-justify">
+                        <div class="p-4 ml-5 md:ml-10 lg:ml-20 overflow-auto prose lg:prose-2xl text-justify bg-amber-200 rounded-sm">
                             {!!$sectionacentuationObject->example!!}
                         </div>
                     </div>

@@ -324,9 +324,9 @@ return [
             'route'  => 'admin.exercise',
             'icon' => 'far fa-fw fa-file',
         ],
-        ['header' => 'REGLAS ORTOGRÁFICAS'],
+        ['header' => 'INFORMACION'],
         [
-            'text' => 'Reglas ortográficas',
+            'text' => 'Publicaciones',
             'route'  => 'admin.rules',
             'icon' => 'far fa-fw fa-file',
         ],
