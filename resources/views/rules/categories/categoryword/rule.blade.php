@@ -69,6 +69,10 @@
                             <div class="p-4 ml-5 md:ml-10 lg:ml-20 overflow-auto prose lg:prose-2xl text-justify">
                                     {!!$categoryword->body!!}
                             </div>
+
+                            <!-- BIBLIOGRAFIA -->
+                            <h4><strong>Bibliografía:</strong></h4>
+                            <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa.</p>
                         </div>
 
 

@@ -78,7 +78,9 @@
                         {!!$sectionacentuationObject->body!!}
                     </div>
 
-                    
+                    <!-- BIBLIOGRAFIA -->
+                    <h4><strong>Bibliografía:</strong></h4>
+                    <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa.</p>
                 </div>
 
 
