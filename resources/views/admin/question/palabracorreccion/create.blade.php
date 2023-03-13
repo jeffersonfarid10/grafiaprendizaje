@@ -65,7 +65,7 @@
             SE AGREGO EL CAMPO RULE EN LA TABLA QUESTIONS QUE SIRVE PARA AGREGAR LAS REGLAS ORTOGRAFICAS
             QUE SE ESTAN ANALIZANDO EN LAS ACTIVIDADES DE PRACTICA -->
             <div class="form-group">
-                <label>Información de reglas ortográficas:</label>
+                <label>Información:</label>
                 <textarea name="rule" id="rule" class="form-control" value="{{old('rule')}}"></textarea>
                 <!-- MENSAJE DE ERROR DE VALIDACION -->
                 @error('rule')
@@ -118,7 +118,7 @@
                 <label>Ingrese las justificaciones de pregunta:</label>
                 @for($k=0; $k<10; $k++)
                     <input type="text" name="justificaciones[]" class="form-control" placeholder="Justificación {{$k+1}}" value="{{old('reason')}}">
-                    <input type="text" name="reglas[]" class="form-control" placeholder="Regla {{$k+1}}" value="{{old('rule')}}">
+                    <input type="text" name="reglas[]" class="form-control" placeholder="Clasificación {{$k+1}}" value="{{old('rule')}}">
                     <br>
                 @endfor
 

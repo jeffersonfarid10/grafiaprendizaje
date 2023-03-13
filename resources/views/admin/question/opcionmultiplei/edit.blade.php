@@ -154,7 +154,7 @@
                 <!-- AGREGAR LOS CAMPOS VACIOS DE LOS 10 TOTALES POR SI EL USUARIO DESEA AGREGAR O QUITAR JUSTIFICACIONES Y REGLAS AL MOMENTO DE EDITAR -->
                 @for($k=0; $k<(10 - count($opcionmultiplei->justifications)); $k++)
                     <input type="text" name="justificacionesedit[]" class="form-control" placeholder="Justificación {{count($opcionmultiplei->justifications)+$k+1}}" value="{{old('reason')}}">
-                    <input type="text" name="reglasedit[]" class="form-control" placeholder="Regla {{count($opcionmultiplei->justifications)+$k+1}}" value="{{old('rule')}}">
+                    <input type="text" name="reglasedit[]" class="form-control" placeholder="Clasificación {{count($opcionmultiplei->justifications)+$k+1}}" value="{{old('rule')}}">
                     <br>
                 @endfor
 

@@ -64,7 +64,7 @@
 
             <!-- ACTUALIZACION SE AGREGA EL CAMPO RULE EN LA TABLA QUESTIONS -->
             <div class="form-group">
-                <label>Información de reglas ortográficas:</label>
+                <label>Información:</label>
                 <br>
                 <textarea name="rule" id="rule" class="form-control" value="{{$juego->rule}}">{{$juego->rule}}</textarea>
 
@@ -142,7 +142,7 @@
                 <!-- AGREGAR LOS CAMPOS VACIOS DE LOS 10 TOTALES POR SI EL USUARIO DESEA AGREGAR O QUITAR JUSTIFICACIONES Y REGLAS AL MOMENTO DE EDITAR -->
                 @for($k=0; $k<(10 - count($juego->justifications)); $k++)
                     <input type="text" name="justificacionesedit[]" class="form-control" placeholder="Justificación {{count($juego->justifications)+$k+1}}" value="{{old('reason')}}">
-                    <input type="text" name="reglasedit[]" class="form-control" placeholder="Regla {{count($juego->justifications)+$k+1}}" value="{{old('rule')}}">
+                    <input type="text" name="reglasedit[]" class="form-control" placeholder="Clasificación {{count($juego->justifications)+$k+1}}" value="{{old('rule')}}">
                     <br>
                 @endfor
 

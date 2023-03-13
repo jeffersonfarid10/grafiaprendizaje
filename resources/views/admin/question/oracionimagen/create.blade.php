@@ -139,7 +139,7 @@
                 <label>Ingrese las justificaciones de pregunta:</label>
                 @for($k=0; $k<10; $k++)
                     <input type="text" name="justificaciones[]" class="form-control" placeholder="Justificación {{$k+1}}" value="{{old('reason')}}">
-                    <input type="text" name="reglas[]" class="form-control" placeholder="Regla {{$k+1}}" value="{{old('rule')}}">
+                    <input type="text" name="reglas[]" class="form-control" placeholder="Clasificación {{$k+1}}" value="{{old('rule')}}">
                     <br>
                 @endfor
 
