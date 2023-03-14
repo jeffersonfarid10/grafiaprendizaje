@@ -76,7 +76,7 @@
         <!-- CONTENEDOR CON LAS SECCIONES A DE EVALUACIONES A LAS QUE PUEDE INGRESAR -->
         <div class="container mx-auto p-10">
             <h3 class="text-2xl sm:text-3xl md:text-4xl text-left font-anton text-slate-700 m-5">Sección de actividades:</h3>
-            <p class="text-xl font-sora m-5">En esta sección, tienes a tu disposición las actividades que puedes realizar en GrafiAprendizaje. Puedes ingresar a la página de tu interés desde
+            <p class="text-xl font-sora m-5">En esta sección, tienes a tu disposición las actividades que puedes realizar. Puedes ingresar a la página de tu interés desde
                 esta sección o desde el menú de navegación que se encuentra en la parte superior.
             </p>
             <!-- CONTENEDOR CON 2 CARD 1 PARA LA EVALUACION DE DIAGNOSTICO Y UNA PARA LA EVALUACION FINAL -->
