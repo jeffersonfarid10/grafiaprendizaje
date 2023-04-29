@@ -87,6 +87,14 @@
                 Por tal motivo, suelen generarse dudas para escribir correctamente las palabras que constituyen el lenguaje español, así como emplear correctamente las letras mayúsculas y minúsculas, o demás
                 tópicos que son igual de importantes para escribir correctamente. 
             </p>
+
+
+                <div class="container p-4 py-2 overflow-auto lg:prose-2xl text-justify bg-amber-200 rounded-sm">
+                    <h4 class="font-bold">Bibliografía/Referencias</h4>
+                    <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa.</p>
+                </div>
+
+
             <p class="text-xl font-sora m-5 text-justify">A continuación, tienes a tu disposición los contenidos principales disponibles acerca de la correcta escritura de palabras. Puedes hacer click en la categoría 
                 de tu interés y mientras más investigues, tendrás a tu disposición más reglas ortográficas y podrás aprender cómo escribir correctamente las palabras que componen el lenguaje español. 
             </p>

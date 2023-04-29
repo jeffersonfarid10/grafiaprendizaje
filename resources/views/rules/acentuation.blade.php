@@ -69,6 +69,13 @@
             </div>
         </div>
 
+        <div class="container mx-auto p-2 my-3 overflow-auto lg:prose-2xl text-justify bg-amber-200 rounded-sm">
+            <h4 class="font-bold">Bibliografía/Referencias</h4>
+            <p>RAE (Real Academia Española) y ASALE (Asociación de Academias de la Lengua Española). (2012). Ortografía básica de la lengua española. Espasa.</p>
+            <p>"Acento ortográfico". Autor: Natalia Ribas. De: Argentina. Para: Concepto.de. Disponible en: <a href="https://www.ejemplos.co/100-ejemplos-de-acento-ortografico/">https://www.ejemplos.co/100-ejemplos-de-acento-ortografico/</a> . Última edición: 6 de junio de 2022. Consultado: 24 de octubre de 2022</p>
+            <p>Fuente: <a href="https://www.ejemplos.co/100-ejemplos-de-acento-ortografico/#ixzz80HnKQUVQ">https://www.ejemplos.co/100-ejemplos-de-acento-ortografico/#ixzz80HnKQUVQ</a></p>
+        </div>
+
         <!-- DIV QUE CONTIENE EL LISTADO DE REGLAS ORTOGRAFICAS CATEGORIA 1 DISPONIBLES -->
         <!-- SACADO DE https://tailblocks.cc 3 COMPONENTE DEL TIPO BLOG -->
         <div class="container mx-auto p-10">
